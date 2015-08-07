@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		.wrapper {
+			width: 600px;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+		}
+		.list {
+			width: 4200px;
+			position: absolute;
+			left: -600px;
+			top: 0;
+		}
+		.list img {
+			width: 600px;
+			height: 400px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="list">
+			<img src="img/5.jpg" alt="1"/>
+			<img src="img/1.jpg" alt="1"/>
+			<img src="img/2.jpg" alt="2"/>
+			<img src="img/3.jpg" alt="3"/>
+			<img src="img/4.jpg" alt="4"/>
+			<img src="img/5.jpg" alt="5"/>
+			<img src="img/1.jpg" alt="5"/>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.1.10.2.js"></script>
+	<script>
+	$(function () {
+		$('.wrapper').on('click', function () {
+			$('.list').animate({'left': '+=-600px'}, 300, function () {
+				if (parseInt($('.list').css('left')) < -3000) {
+					$('.list').css({'left': '-600px'});
+				}
+			});
+		});
+	})
+	</script>
+</body>
+</html>
