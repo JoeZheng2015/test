@@ -43,6 +43,10 @@
 	<script type="text/javascript" src="js/jquery.1.10.2.js"></script>
 	<script>
 	$(function () {
+		$('.list img').each(function () {
+			debugger;
+			console.log(this);
+		});
 		$('.wrapper').on('click', function () {
 			$('.list').animate({'left': '+=-600px'}, 300, function () {
 				if (parseInt($('.list').css('left')) < -3000) {
