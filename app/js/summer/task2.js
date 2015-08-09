@@ -5,15 +5,17 @@ $(function () {
 		handler = setTimeout(function () {
 			height = window.document.documentElement.clientHeight;
 			$('#wrapper, .slide').css({'height': height + 'px'});
+			$('.slides').css({
+				'transform': 'translateY(0px)', 
+				'-webkit-transform': 'translateY(0px)'
+			});
 		}, 300);
 	}, false);
-
 	var slides = $('.slides');
-	var arrow = $('.ascend, .descend');
-	arrow.on('click, touchstart', function () {
+	$('.ascend, .descend').on('click, touchstart', function () {
 		swipe(this.className === 'ascend'? 'up' : 'down');
 	});
-	slides.on('touchstart', function (e) {
+	$(window).on('touchstart', function (e) {
 		startY = e.changedTouches[0].clientY;
 		baseY = parseFloat(slides.css('transform').match(/translateY\((.*)px\)/)[1]);
 	})
@@ -30,6 +32,9 @@ $(function () {
 	function move(offset, isAnimate) {
 		var y = baseY + offset;
 		if (isAnimate) {
+			if (y > 0 || y <= -height * $('.slide').length) {
+				y = baseY;
+			}
 			slides.animate({
 				'transform': 'translateY(' + y + 'px)', 
 				'-webkit-transform': 'translateY(' + y + 'px)'
@@ -44,13 +49,20 @@ $(function () {
 				'-webkit-transform': 'translateY(' + y + 'px)'
 			})
 		}
-	}
+	};
 	function swipe(dir) {
 		var currY = parseFloat(slides.css('transform').match(/translateY\((.*)px\)/)[1]);
 		var y = dir === 'up' ? currY - height : currY + height;
-		slides.css({
-			'transform': 'translateY(' + y + 'px)', 
-			'-webkit-transform': 'translateY(' + y + 'px)'
-		})
-	}
+		if (y > 0 || y <= -height * $('.slide').length) {
+			return;
+		}
+		else {
+			slides.animate({
+				'transform': 'translateY(' + y + 'px)', 
+				'-webkit-transform': 'translateY(' + y + 'px)'
+			}, {
+				duration: 200
+			})
+		}
+	};
 })
