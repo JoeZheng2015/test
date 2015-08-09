@@ -5,21 +5,19 @@ $(function () {
 		handler = setTimeout(function () {
 			height = window.document.documentElement.clientHeight;
 			$('#wrapper, .slide').css({'height': height + 'px'});
+			$('.slides').css({
+				'transform': 'translateY(0px)', 
+				'-webkit-transform': 'translateY(0px)'
+			});
 		}, 300);
 	}, false);
 	var slides = $('.slides');
-	$('.ascend').on('click', function () {
-		console.log('cli');
-		swipe('up');
+	$('.ascend, .descend').on('click, touchstart', function () {
+		swipe(this.className === 'ascend'? 'up' : 'down');
 	});
-	$('.descend').on('click', function () {
-		console.log('cli');
-		swipe('down');
-	});
-	slides.on('touchstart', function (e) {
+	$(window).on('touchstart', function (e) {
 		startY = e.changedTouches[0].clientY;
-		var translateY = slides.css('transform').match(/, (\d)*\)$/) || slides.css('transform').match(/translateY\((.*)px\)/);
-		baseY = parseFloat(translateY[1]);
+		baseY = parseFloat(slides.css('transform').match(/translateY\((.*)px\)/)[1]);
 	})
 	slides.on('touchmove', function (e) {
 		var moveY = e.changedTouches[0].clientY;
@@ -39,10 +37,7 @@ $(function () {
 			}
 			slides.animate({
 				'transform': 'translateY(' + y + 'px)', 
-				'-webkit-transform': 'translateY(' + y + 'px)',
-				'-ms-transform': 'translateY(' + y + 'px)',
-				'-moz-transform': 'translateY(' + y + 'px)',
-				'-o-transform': 'translateY(' + y + 'px)'
+				'-webkit-transform': 'translateY(' + y + 'px)'
 			}, 
 			{
 				duration: 200
@@ -51,16 +46,12 @@ $(function () {
 		else {
 			slides.css({
 				'transform': 'translateY(' + y + 'px)', 
-				'-webkit-transform': 'translateY(' + y + 'px)',
-				'-ms-transform': 'translateY(' + y + 'px)',
-				'-moz-transform': 'translateY(' + y + 'px)',
-				'-o-transform': 'translateY(' + y + 'px)'
+				'-webkit-transform': 'translateY(' + y + 'px)'
 			})
 		}
 	};
 	function swipe(dir) {
-		var translateY = slides.css('transform').match(/, (\d)*\)$/) || slides.css('transform').match(/translateY\((.*)px\)/);
-		var currY = parseFloat(translateY[1]);
+		var currY = parseFloat(slides.css('transform').match(/translateY\((.*)px\)/)[1]);
 		var y = dir === 'up' ? currY - height : currY + height;
 		if (y > 0 || y <= -height * $('.slide').length) {
 			return;
@@ -68,10 +59,7 @@ $(function () {
 		else {
 			slides.animate({
 				'transform': 'translateY(' + y + 'px)', 
-				'-webkit-transform': 'translateY(' + y + 'px)',
-				'-ms-transform': 'translateY(' + y + 'px)',
-				'-moz-transform': 'translateY(' + y + 'px)',
-				'-o-transform': 'translateY(' + y + 'px)'
+				'-webkit-transform': 'translateY(' + y + 'px)'
 			}, {
 				duration: 200
 			})
