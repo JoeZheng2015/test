@@ -1,0 +1,49 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+body {
+    background: url('/files/images/bg-rear.gif') repeat-x 20% 0;
+    background-color: #d3ff99;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.bg-middle {
+    background: url('/files/images/bg-mid.png') repeat-x 40% 0;
+}
+.bg-front {
+    background: url('/files/images/bg-front.png') repeat-x 150% 0;
+}
+header {
+    text-align: center;
+}
+.wrapper {
+    width: 6.4rem;
+    font-size: 0.28rem;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+.info dd {
+    font-size: 0.2rem;
+    padding: 0.05rem 0;
+}
+.info dd span {
+    margin-left: 0.2rem;
+    padding-left: 0.15rem;
+    border-left: 0.05rem solid #00bfa5;
+}
+footer {
+    color: #aaa;
+    text-align: center;
+}
