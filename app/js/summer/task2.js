@@ -30,11 +30,6 @@ $(function () {
 		var offset = endY - startY;
 		move(offset < 0 ? -height : height, true);
 	});
-	slides.on('touchcancel', function (e) {
-		var endY = e.changedTouches[0].clientY;
-		var offset = endY - startY;
-		move(offset < 0 ? -height : height, true);
-	});
 	function move(offset, isAnimate) {
 		var y = baseY + offset;
 		if (isAnimate) {

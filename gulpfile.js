@@ -13,7 +13,6 @@ gulp.task('serve', function () {
 			}
 		}
 	});
-	gulp.watch('app/css/summer/**/*.css', ['prefixer'])
 });
 gulp.task('prefixer', function () {
 	return gulp.src('app/css/summer/**/*.css')
