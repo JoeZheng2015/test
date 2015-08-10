@@ -30,6 +30,7 @@ $(function () {
 		var offset = endY - startY;
 		move(offset < 0 ? -height : height, true);
 	});
+	
 	function move(offset, isAnimate) {
 		var y = baseY + offset;
 		if (isAnimate) {
