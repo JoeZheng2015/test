@@ -13,7 +13,6 @@
 		width: 200px;
 		height: 200px;
 		position: relative;
-		border: 1px solid black;
 	}
 	.box {
 		background-color: red;
@@ -124,12 +123,28 @@
 		transform: translateY(100%);
 	}
 }
+	li {
+		width: 640px;
+		height: 200px;
+	}
 	</style>
 </head>
 <body>
 	<div class="wrapper">
-		<div class="box"></div>
+		<div class="coupon">
+			<li><img class="img1" src="../images/5.jpg" alt=""></li>
+		</div>
 	</div>
+
 	<script src="/bower_components/zepto/zepto.min.js"></script>
+	<script>
+		$(function () {
+			$('.coupon').on('click', function(){
+				$('.img1').hide();
+				$('.img
+					2').show();
+			});
+		})
+	</script>
 </body>
 </html>

@@ -1,0 +1,62 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; } 
+body {
+    font-family: Arial, sans-serif;
+    font-size: .28rem;
+}
+#wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.arrow {
+    width: 100%;
+    height: 50px;
+    background-color: #aaa;
+    position: absolute;
+    z-index: 2;
+}
+.hide {
+    display: none;
+}
+.curr {
+    display: block;
+}
+.ascend {
+    top: 0;
+}
+.descend {
+    bottom: 0;
+}
+.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+[data-index="1"] {
+    background-color: red;
+}
+[data-index="2"] {
+    background-color: green;
+}
+[data-index="3"] {
+    background-color: blue;
+}
+[data-index="4"] {
+    background-color: yellow;
+}
