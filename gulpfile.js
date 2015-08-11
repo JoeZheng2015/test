@@ -9,7 +9,8 @@ gulp.task('serve', function () {
 			baseDir: 'app',
 			routes: {
 				'/bower_components': 'bower_components',
-				'/dist': 'dist'
+				'/dist': 'dist',
+				'/files': 'files'
 			}
 		}
 	});
