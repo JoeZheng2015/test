@@ -7,144 +7,63 @@
 	* {
 		margin: 0;
 		padding: 0;
+		list-style-type: none;
 	}
-	.wrapper {
-		margin: 200px 400px;
-		width: 200px;
-		height: 200px;
+	#wrapper {
 		position: relative;
-	}
-	.box {
-		background-color: red;
-		width: 100px;
-		height: 100px;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-	.left {
-		left: -100%;
-	}
-	.right {
-		left: 100%;
-	}
-	.bottom {
-		top: 100%;
-	}
-	.pt-page-moveToTop {
-		-webkit-animation: moveToTop .6s ease both;
-		animation: moveToTop .6s ease both;
-	}
-
-	@-webkit-keyframes moveToTop {
-		from {
-		}
-
-		to {
-			-webkit-transform: translateY(-100%);
-		}
-	}
-
-	@keyframes moveToTop {
-		from {
-		}
-
-		to {
-			-webkit-transform: translateY(-100%);
-			transform: translateY(-100%);
-		}
-	}
-	.pt-page-moveToLeft {
-	-webkit-animation: moveToLeft .6s ease both;
-	animation: moveToLeft .6s ease both;
-}
-
-@-webkit-keyframes moveToLeft {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateX(-100%);
-	}
-}
-
-@keyframes moveToLeft {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateX(-100%);
-		transform: translateX(-100%);
-	}
-}
-.pt-page-moveToRight {
-	-webkit-animation: moveToRight .6s ease both;
-	animation: moveToRight .6s ease both;
-}
-
-@-webkit-keyframes moveToRight {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateX(100%);
-	}
-}
-
-@keyframes moveToRight {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateX(100%);
-		transform: translateX(100%);
-	}
-}
-.pt-page-moveToBottom {
-	-webkit-animation: moveToBottom .6s ease both;
-	animation: moveToBottom .6s ease both;
-}
-
-@-webkit-keyframes moveToBottom {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateY(100%);
-	}
-}
-
-@keyframes moveToBottom {
-	from {
-	}
-
-	to {
-		-webkit-transform: translateY(100%);
-		transform: translateY(100%);
-	}
-}
-	li {
 		width: 640px;
+	}
+	.wrapper li {
+		width: 300px;
 		height: 200px;
+		float: left;
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+	.wrapper li div {
+		width: 300px;
+		height: 200px;
+		border: 1px solid black;
+		margin: 0 auto;
+	}
+	.odd {
+		position: absolute;
+		width: 640px;
+		border: 1px solid red;
+	}
+	.odd li:first-child {
+		width: 600px;
+	}
+	.even {
+		position: absolute;
+		right: 50px;
+		width: 640px;
+		border: 1px solid red;
 	}
 	</style>
 </head>
 <body>
 	<div class="wrapper">
-		<div class="coupon">
-			<li><img class="img1" src="../images/5.jpg" alt=""></li>
-		</div>
+		<ul class="odd">
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+		</ul>
+		<ul class="even">
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+			<li><div></div></li>
+		</ul>
 	</div>
-
 	<script src="/bower_components/zepto/zepto.min.js"></script>
-	<script>
-		$(function () {
-			$('.coupon').on('click', function(){
-				$('.img1').hide();
-				$('.img
-					2').show();
-			});
-		})
-	</script>
 </body>
 </html>
