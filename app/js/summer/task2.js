@@ -5,6 +5,7 @@ $(function () {
 		handler = setTimeout(function () {
 			height = window.document.documentElement.clientHeight;
 			$('#wrapper, .slide').css({'height': height + 'px'});
+			$('.slide').first().addClass('curr');
 			$('.slides').css(prefixer('transform', 'translateY', 0));
 		}, 300);
 	}, false);
@@ -33,14 +34,13 @@ $(function () {
 	
 	function move(offset, isAnimate) {
 		var y = baseY + offset;
+		var dir = offset > 0 ? 'down' : 'up';
 		if (isAnimate) {
 			if (y > 0 || y <= -height * $('.slide').length) {
 				y = baseY;
+				dir = '';
 			}
-			slides.animate(prefixer('transform', 'translateY', y), 
-			{
-				duration: 200
-			})
+			slides.animate(prefixer('transform', 'translateY', y), {duration: 200}, changeCurr(dir))
 		}
 		else {
 			slides.css(prefixer('transform', 'translateY', y))
@@ -54,8 +54,18 @@ $(function () {
 			return;
 		}
 		else {
-			slides.animate(prefixer('transform', 'translateY', y), {duration: 200})
+			slides.animate(prefixer('transform', 'translateY', y), {duration: 200}, changeCurr(dir))
 		}
+	};
+	function changeCurr(dir) {
+		if (!dir) {
+			return;
+		}
+		var currIndex = parseInt($('.curr').attr('data-index'));
+		var nextIndex = dir === 'up' ? currIndex + 1 : currIndex - 1;
+		var next = '[data-index="' + nextIndex + '"]';
+		$('.curr').removeClass('curr');
+		$(next).addClass('curr');
 	};
 	function prefixer(cssAttr, cssValue, value, unite) {
 		var unite = unite || 'px';
