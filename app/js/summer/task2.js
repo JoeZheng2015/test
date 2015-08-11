@@ -36,9 +36,11 @@ $(function () {
 		if (isTouchEnd) {
 			if (y > 0 || y <= -height * $('.slide').length) {
 				y = baseY;
-				dir = '';
+				slides.animate(prefixer('transform', 'translateY', y), {duration: 200});
 			}
-			slides.animate(prefixer('transform', 'translateY', y), {duration: 200}, changeCurr(dir))
+			else {
+				slides.animate(prefixer('transform', 'translateY', y), {duration: 200}, changeCurr(dir));
+			}
 		}
 		else {
 			slides.css(prefixer('transform', 'translateY', y))
@@ -56,9 +58,6 @@ $(function () {
 		}
 	};
 	function changeCurr(dir) {
-		if (!dir) {
-			return;
-		}
 		var currIndex = parseInt($('.curr').attr('data-index')),
 			nextIndex = dir === 'up' ? currIndex + 1 : currIndex - 1,
 			next = '[data-index="' + nextIndex + '"]';

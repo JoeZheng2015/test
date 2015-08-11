@@ -42,18 +42,3 @@ body {
 .slide {
 	width: 100%;
 }
-.slide[data-index="1"] {
-	background-color: red;
-}
-.slide[data-index="2"] {
-	background-color: green;
-}
-.slide[data-index="3"] {
-	background-color: blue;
-}
-.slide[data-index="4"] {
-	background-color: yellow;
-}
-.slide[data-index="5"] {
-	background-color: black;
-}
