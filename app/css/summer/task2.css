@@ -32,7 +32,7 @@ body {
 	margin-left: -0.21rem;
 }
 .slides {
-	background-color: #e0e0e0;
+	background-color: #fff;
 }
 .slide {
 	text-align: center;
@@ -92,6 +92,7 @@ body {
 	padding: 0.4rem;
 }
 .books {
+	background-color: #fff;
 	width: 4.2rem;
 	margin: 0 auto;
 }
@@ -116,8 +117,9 @@ body {
 	margin-right: 0.08rem;
 }
 .books li div {
-	box-shadow: 0.04rem 0.04rem 0.05rem #333;
-	background-color: #fff;
+	box-shadow: 0rem 0rem 0.06rem #ccc;
+	border: 1px solid #ccc;
+	border-radius: 0.05rem;
 	width: 2rem;
 	height: 2rem;
 	padding: 0.3rem 0;
