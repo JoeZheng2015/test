@@ -5,12 +5,12 @@ $(function () {
 		handler = setTimeout(function () {
 			height = window.document.documentElement.clientHeight;
 			$('#wrapper, .slide').css({'height': height + 'px'});
-			$('.slide').first().addClass('curr');
+			$('.slide').removeClass('hide').first().addClass('curr');
 			$('.slides').css(prefixer('transform', 'translateY', 0));
 		}, 300);
 	}, false);
-	$('.ascend, .descend').on('click', function () {
-		swipe(this.className === 'ascend'? 'up' : 'down');
+	$('.descend').on('click', function () {
+		swipe('down');
 	});
 	slides.on('touchstart', function (e) {
 		e.preventDefault();
@@ -22,13 +22,26 @@ $(function () {
 		e.preventDefault();
 		var moveY = e.changedTouches[0].clientY,
 			offset = moveY - startY;
-		move(offset);
+		if (offset > 30 || offset <-30) {
+			move(offset);
+		}
 	})
 	slides.on('touchend', function (e) {
 		e.preventDefault();
 		var endY = e.changedTouches[0].clientY,
 			offset = endY - startY;
-		move(offset < 0 ? -height : height, true);
+		if (offset > 30 || offset <-30) {
+			move(offset < 0 ? -height : height, true);
+		}
+	});
+	$('.skills .slide-2').on('click', 'li', function (e) {
+		$(this).find('img').toggleClass('pt-page-flipOutRight').toggle();
+		$(this).find('div').toggleClass('pt-page-flipInRight').toggle();
+	});
+	$('.skills .slide-2').on('touchend', 'li', function (e) {
+		e.preventDefault();
+		$(this).find('img').toggleClass('pt-page-flipOutRight').toggle();
+		$(this).find('div').toggleClass('pt-page-flipInRight').toggle();
 	});
 	function move(offset, isTouchEnd) {
 		var y = baseY + offset,
