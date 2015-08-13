@@ -110,10 +110,8 @@ body {
 .hide {
 	display: none;
 }
-.slide-1 {
-		.fa {
-		margin-right: 0.1rem;
-	}
+.slide-1 .fa {
+	margin-right: 0.1rem;
 }
 .avatar {
 	height: 2.4rem;

@@ -75,9 +75,9 @@ $(function () {
 		}
 	};
 	function changeCurr(dir) {
-		var currIndex = parseInt($('.curr').attr('data-index')),
+		var currIndex = parseInt($('.curr').attr('class').slice(6, 7)),
 			nextIndex = dir === 'up' ? currIndex + 1 : currIndex - 1,
-			next = '[data-index="' + nextIndex + '"]';
+			next = '.slide-' + nextIndex;
 		$('.curr').removeClass('curr');
 		$(next).addClass('curr');
 	};
