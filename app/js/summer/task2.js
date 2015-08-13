@@ -9,7 +9,11 @@ $(function () {
 			$('.slides').css(prefixer('transform', 'translateY', 0));
 		}, 300);
 	}, false);
-	$('.descend').on('click', function () {
+	$('.arrow').on('click', function () {
+		swipe('down');
+	});
+	$('.arrow').on('touchend', function (e) {
+		e.preventDefault();
 		swipe('down');
 	});
 	slides.on('touchstart', function (e) {
@@ -34,11 +38,11 @@ $(function () {
 			move(offset < 0 ? -height : height, true);
 		}
 	});
-	$('.skills .slide-2').on('click', 'li', function (e) {
+	$(' .slide-2 .skills').on('click', 'li', function (e) {
 		$(this).find('img').toggleClass('pt-page-flipOutRight').toggle();
 		$(this).find('div').toggleClass('pt-page-flipInRight').toggle();
 	});
-	$('.skills .slide-2').on('touchend', 'li', function (e) {
+	$(' .slide-2 .skills').on('touchend', 'li', function (e) {
 		e.preventDefault();
 		$(this).find('img').toggleClass('pt-page-flipOutRight').toggle();
 		$(this).find('div').toggleClass('pt-page-flipInRight').toggle();
