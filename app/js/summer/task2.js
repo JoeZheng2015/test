@@ -47,6 +47,16 @@ $(function () {
 		$(this).find('img').toggleClass('pt-page-flipOutRight').toggle();
 		$(this).find('div').toggleClass('pt-page-flipInRight').toggle();
 	});
+	$('.slide-3 .skills li').on('click', function (e) {
+		var item = this.classList[0];
+		$('.tab').removeClass('pt-page-moveCircle');
+		$('.tab.' + item).addClass('pt-page-moveCircle');
+	});
+	$('.slide-3 .skills li').on('touchend', function (e) {
+		var item = this.classList[0];
+		$('.tab').removeClass('pt-page-moveCircle');
+		$('.tab.' + item).addClass('pt-page-moveCircle');
+	});
 	function move(offset, isTouchEnd) {
 		var y = baseY + offset,
 			dir = offset > 0 ? 'down' : 'up';
