@@ -9,12 +9,9 @@ $(function () {
 			$('.slides').css(prefixer('transform', 'translateY', 0));
 		}, 300);
 	}, false);
-	$('.arrow').on('click', function () {
-		swipe('down');
-	});
 	$('.arrow').on('touchend', function (e) {
 		e.preventDefault();
-		swipe('down');
+		swipe('up');
 	});
 	slides.on('touchstart', function (e) {
 		e.preventDefault();

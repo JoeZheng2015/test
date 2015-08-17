@@ -107,6 +107,18 @@ body {
 	position: relative;
 	width: 100%;
 }
+.slide-1 {
+	background: #4ccfe2;
+}
+.slide-2 {
+	background: #882def;
+}
+.slide-3 {
+	background: #9df15f;
+}
+.slide-4 {
+	background: #fff661;
+}
 .hide {
 	display: none;
 }
@@ -137,21 +149,33 @@ body {
 .slide-2 {
 	position: relative;
 }
-.skills {
+.slide-2 .skills {
+	position: absolute;
+	top: 50%;
+	height: 6rem;
+	margin-top: -3rem;
+}
+.slide-3 .skills {
 	position: absolute;
 	top: 0.5rem;
 	z-index: 2;
 }
 .tab {
 	position: absolute;
-	bottom: 1rem;
-	width: 100%;
+	bottom: 2.5rem;
+	left: 50%;
+	margin-left: -1.2rem;
+	width: 2.4rem;
 	opacity: 0;
-	height: 500px;
+	height: 5rem;
 }
 .content {
-	margin-top: 450px;
+	margin-top: 4.5rem;
 	text-align: center;
+	box-shadow: 0rem 0rem 0.06rem #ccc;
+	border-radius: 0.1rem;
+	padding: 0.2rem;
+	background-color: rgba(255, 255, 255, 0.5);
 }
 .skills li {
 	float: left;
