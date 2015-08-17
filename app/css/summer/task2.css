@@ -111,6 +111,7 @@ body {
 	display: none;
 }
 .slide-1 .fa {
+	color: #00bfa5;
 	margin-right: 0.1rem;
 }
 .avatar {
@@ -121,13 +122,14 @@ body {
 }
 .info {
 	text-align: left;
+	padding-left: 0.5rem;
 }
 .info dt {
 	font-size: 0.32rem;
 	font-weight: bold;
 }
 .info dd {
-    padding: 0.1rem 0 0 0.4rem;
+    padding: 0.2rem 0 0 0.4rem;
 }
 .info dd span {
 	font-weight: bold;
@@ -136,7 +138,6 @@ body {
 	position: relative;
 }
 .skills {
-	overflow: hidden;
 	position: absolute;
 	top: 50%;
 	margin-top: -2.4rem;
@@ -178,7 +179,7 @@ body {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	margin: 0.2rem;
+	margin-bottom: 0.2rem;
 	width: 4.2rem;
 }
 .books li:nth-child(even) .img-box {
@@ -200,9 +201,87 @@ body {
 	height: 2rem;
 	padding: 0.3rem 0;
 }
+.books li .book-info {
+	opacity: 0;
+	padding-right: 0.3rem;
+	padding-left: 0.3rem;
+}
 .img-box img {
 	width: 2rem;
 	height: 2rem;
+}
+.curr .pt-page-rotateCarouselLeftIn {
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+	-webkit-animation: rotateCarouselLeftIn .8s forwards ease;
+	animation: rotateCarouselLeftIn .8s forwards ease;
+}
+
+@-webkit-keyframes rotateCarouselLeftIn {
+	from {
+		opacity: .3;
+		-webkit-transform: translateX(200%) scale(.4) rotateY(65deg);
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rotateCarouselLeftIn {
+	from {
+		opacity: .3;
+		-webkit-transform: translateX(200%) scale(.4) rotateY(65deg);
+		transform: translateX(200%) scale(.4) rotateY(65deg);
+	}
+	to {
+		opacity: 1;
+	}
+}
+.curr .pt-page-rotateCarouselRightIn {
+	-webkit-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+	-webkit-animation: rotateCarouselRightIn .8s both ease;
+	animation: rotateCarouselRightIn .8s both ease;
+}
+
+@-webkit-keyframes rotateCarouselRightIn {
+	from {
+		opacity: .3;
+		-webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg);
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rotateCarouselRightIn {
+	from {
+		opacity: .3;
+		-webkit-transform: translateX(-200%) scale(.4) rotateY(-65deg);
+		transform: translateX(-200%) scale(.4) rotateY(-65deg);
+	}
+	to {
+		opacity: 1;
+	}
+}
+.curr .pt-page-scaleUpCenter {
+	-webkit-animation: scaleUpCenter .4s ease-out both;
+	animation: scaleUpCenter .4s ease-out both;
+}
+
+@-webkit-keyframes scaleUpCenter {
+	from {
+		opacity: 0;
+		-webkit-transform: scale(.7);
+	}
+}
+
+@keyframes scaleUpCenter {
+	from {
+		opacity: 0;
+		-webkit-transform: scale(.7);
+		transform: scale(.7);
+	}
 }
 .curr .pt-page-moveToTop {
 	-webkit-animation: moveToTop .6s ease both;
