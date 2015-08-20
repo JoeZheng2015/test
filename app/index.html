@@ -12,63 +12,59 @@
 	#wrapper {
 		position: relative;
 		width: 640px;
+		margin: 100px auto;
 	}
-	.wrapper li {
-		width: 300px;
-		height: 200px;
-		float: left;
-		margin-left: 20px;
-		margin-top: 20px;
-	}
-	.wrapper li div {
-		width: 300px;
-		height: 200px;
-		border: 1px solid black;
-		margin: 0 auto;
-	}
-	.odd {
-		position: absolute;
-		width: 640px;
-		border: 1px solid red;
-	}
-	.odd li:first-child {
-		width: 600px;
-	}
-	.even {
-		position: absolute;
-		right: 50px;
-		width: 640px;
-		border: 1px solid red;
-	}
+	
 	</style>
 </head>
 <body>
-	<div class="wrapper">
-		<ul class="odd">
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-		</ul>
-		<ul class="even">
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-			<li><div></div></li>
-		</ul>
+	<div id="wrapper">
+		<a href="#" class="love not_love">赞</a>
+		<span class="num">暂无人觉得赞</span>
 	</div>
 	<script src="/bower_components/zepto/zepto.min.js"></script>
 	<script>
 		$(function () {
-			var t = '';
-			t ? return: return;
+			function curry(fn) {
+				var args = Array.prototype.slice.call(arguments, 1);
+				return function () {
+					var innerArgs = Array.prototype.slice.call(arguments);
+					var finalArgs = args.concat(innerArgs);
+				};
+			}
+			curry(1, 2, 4)('one', 'two', 'three');
+
+
+
+			$('.love').on('click', function (e) {
+				e.preventDefault();
+				var $el = $(this),
+					$num = $('.num'),
+					num = parseInt($num.text());
+				if($el.hasClass('not_love')) {
+					$el.text('不赞');
+					if (num) {
+						$num.text(num + 1 + '人已点赞');
+					}
+					else {
+						$num.text('1人已点赞');
+					}
+					$el.removeClass('not_love').addClass('already_love');
+				}
+				else if ($el.hasClass('already_love')) {
+					$el.text('赞');
+					if (num - 1) {
+						$num.text(num - 1 + '人已点赞')
+					}
+					else {
+						$num.text('暂无人觉得赞');
+					}
+					$el.removeClass('already_love').addClass('not_love');
+				}
+				else {
+					return false;
+				}
+			});
 		})
 	</script>
 </body>
