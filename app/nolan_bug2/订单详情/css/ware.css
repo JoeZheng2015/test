@@ -1,0 +1,681 @@
+/* 新版商品详情样式 */
+
+body{
+    background-color: #f7f7f7;
+}
+strong{
+    font-weight: normal;
+}
+body.fixed{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+.footer{
+    display: none;
+}
+.hidden {
+    display: none;
+}
+.ware-detail,
+.ware-discuss,
+.ware-comments,
+.ware-description,
+.nav,
+.talent-recommendation,
+.top-comments,
+.ware-discuss div,
+.ware-comments div,
+.ware-description div,
+.nav div,
+.talent-recommendation div,
+.top-comments div{
+    background-color: #fff;
+}
+.ware-detail{margin:0 0 .24rem;}
+.user-block{
+    height: 0.52rem;
+    line-height: 0.52rem;
+}
+.user-block img{
+    width: 0.52rem;
+    height: 0.52rem;
+    font-size: 0.1rem;
+    border-radius: 50%;
+    vertical-align: top;
+}
+.user-block span{
+    color: rgba(0,0,0,0.9);
+    font-size: 0.24rem;
+    padding: 0 0.1rem;
+}
+.user-block img.verify-type{
+    width: 0.25rem;
+    height: 0.25rem;
+    vertical-align: middle;
+    border-radius: 0;
+}
+.count-block{
+    height: 0.96rem;
+    line-height: 0.96rem;
+    padding: 0 0.24rem;
+    font-size: 0.24rem;
+    color: rgba(0,0,0,0.65);
+}
+.star-block{
+    margin-left: -0.05rem;
+    overflow: hidden;
+}
+.star-block li{
+    width: 0.33rem; 
+    height: 0.33rem; 
+    margin-left: 0.08rem;
+    float: left;
+}
+.star-block li.full{
+    background: url('/resource/web/images/meigou/full_star.png') no-repeat;
+    background-size: cover;
+}
+.star-block li.half{
+    background: url('/resource/web/images/meigou/half_star.png') no-repeat;
+    background-size: cover;
+}
+.star-block li.empty{
+    background: url('/resource/web/images/meigou/empty_star.png') no-repeat;
+    background-size: cover;
+}
+.comment-block{
+    color: rgba(0,0,0,0.65);
+    font-size: 0.24rem;
+    padding: 0.22rem 0.24rem 0.3rem;
+}
+.comment-block .highlight{
+    background-color: rgba(0,0,0,0.2); 
+}
+.comment-block .user-block{
+    margin-bottom: 0.1rem;
+}
+.imgs-block{
+    overflow: hidden;
+    margin-top: 0.1rem;
+    margin-left: -0.11rem;
+}
+.imgs-block li{
+    float: left;
+    width: 1.9rem;
+    height: 1.9rem;
+    margin: 0 0 0.11rem 0.11rem;
+    overflow: hidden;
+}
+.imgs-block.img-num-1 li{
+    height: auto;
+    max-width: 2.5rem;
+    min-width: 1.9rem;
+    width: auto;
+}
+.imgs-block li img{
+    vertical-align: top;
+    width: 100%;
+}
+.ware-seller{
+    padding: 0.24rem;
+    overflow: hidden;
+}
+.ware-seller .user-block{
+    float: left;
+}
+.ware-seller button{
+    border-color:#b1afaf;
+    border-radius: 0.05rem;
+    height: 0.48rem; 
+    margin-top: 0.02rem;
+    padding: 0 0.15rem; 
+    color: rgba(0,0,0,0.9);
+    font-size: 0.24rem;
+    float: right;
+    cursor: pointer;
+}
+.ware-seller button:before{border-radius: 0.05rem;border-color:#b1afaf;}
+#follow-user{
+    background: url('/resource/web/images/mobile/meigou/follow.png') no-repeat 0.1rem center;
+    background-size: auto 55%;
+    padding-left: 0.4rem;
+}
+.swiper-container{
+    width: 100%;
+    height: 6.4rem;  
+}
+.swiper-container-horizontal > div.swiper-pagination{
+    text-align: right;
+    background-color: rgba(241, 90, 130, 0.3);
+    bottom: 0;
+    height: 0.52rem; 
+}
+.swiper-container-horizontal > .swiper-pagination span:last-child{
+    margin-right: 0.24rem;
+}
+.swiper-container-horizontal > .swiper-pagination .swiper-pagination-bullet-active{
+    background-color: #fff;
+}
+.ware-imgs{
+    width: 100%;
+    height: 6.4rem;  
+    position: relative;
+    z-index: 0;
+}
+.ware-img{
+    width: 100%;
+}
+.ware-imgs > p{
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    height: 0.52rem;
+    margin-left: 0.2rem; 
+    padding-left: 0.5rem;
+    background: url('/resource/web/images/meigou/clock.png') left center no-repeat;
+    background-size: 0.32rem auto;
+    font-size: 0.24rem; 
+    line-height: 0.52rem;
+    z-index: 1;
+}
+.ware-price{
+    padding: 0.38rem 0.24rem .33rem; 
+    text-align: center;
+    color: #f15b82;
+    line-height: 1.1;
+}
+.ware-price p:first-child{
+    margin-bottom: 0.15rem;
+}
+.ware-price strong{
+    display: block;
+    font-size: 0.6rem;
+}
+.ware-price strong span{
+    font-size: 0.4rem;
+}
+.ware-price strong{
+    display: block;
+    font-size: 0.6rem;
+}
+.ware-price small{
+    font-size: 0.24rem;
+    color: rgba(0,0,0,0.4);
+    text-decoration: line-through;
+}
+.ware-price p > span{
+    border-color:#f15b82;
+    font-size: 0.2rem;
+    padding: 0.05rem;
+    margin-left: 0.08rem;
+    display:inline-block;
+}
+.ware-price p > span.g-border:before{border-color:#f15b82;}
+.ware-title{
+    font-size: 0.28rem;
+    color: rgba(0,0,0,0.9);
+    padding:0 .24rem;
+}
+.ware-title h1{padding:0 0 .08rem;line-height:.4rem;text-align:justify;}
+.ware-title p{
+    overflow: hidden;
+    font-size:.24rem;
+    color: rgba(0,0,0,0.4);
+}
+.ware-title span:last-child{
+    float: right;
+}
+.ware-title span:first-child{
+    float: left;
+}
+.ware-summary{
+    font-size: 0.24rem;
+    color: rgba(0,0,0,0.8);
+    padding:.24rem;
+    text-align:justify;
+}
+.ware-acceptance{padding:.04rem 0 .25rem;}
+.ware-acceptance ul{width:100%;display:table;table-layout:fixed;text-align:center;font-size:.2rem;color:rgba(0,0,0,.65);}
+.ware-acceptance li{display:table-cell;}
+.ware-acceptance li a{color:rgba(0,0,0,.65);}
+.ware-acceptance .icon{display:block;width:.62rem;height:.72rem;overflow:hidden;margin:auto;background:url('http://www.meilapp.com/resource/web/images/mobile/meigou/icon_acceptance.png') no-repeat;background-size:2.5rem .7rem;}
+.ware-acceptance .icon-z{background-position:-.62rem 0;}
+.ware-acceptance .icon-s{background-position:-1.24rem 0;}
+.ware-acceptance .icon-w{background-position:-1.86rem 0;}
+.ware-seller-about{background-color:#fff;margin:.24rem 0;}
+.ware-seller-about .info{padding:.3rem .24rem .2rem 1.5rem;min-height:1.06rem;position:relative;}
+.ware-seller-about .avator{width:1.06rem;height:1.06rem;border-radius:50%;position:absolute;left:.24rem;top:.3rem;}
+.ware-seller-about .name{height:.28rem;line-height:.28rem;float:left;}
+.ware-seller-about .verify{height:.25rem;width:.25rem;float:left;margin:.01rem 0 0 .15rem;border-radius:0;}
+.ware-seller-about .level{color:#f15b82;font-size:.24rem;float:left;line-height:.28rem;margin:0 0 0 .15rem;}
+.ware-seller-about .intro{clear:both;font-size:.24rem;color:rgba(0,0,0,.65);line-height:.32rem;padding:.15rem 0 0;text-align:justify;max-height:.64rem;overflow:hidden;}
+.ware-seller-about .video{padding:0 .24rem .3rem;}
+.ware-seller-about .player{vertical-align:top;}
+.ware-seller-about .more{padding:0 .24rem;height:.95rem;line-height:.95rem;position:relative;display:block;color:rgba(0,0,0,.9);}
+.ware-seller-about .count{position:absolute;top:0;right:.65rem;color:rgba(0,0,0,.65);font-size:.24rem;}
+.ware-seller-about .nub{position:absolute;right:.24rem;top:50%;height:.18rem;width:.18rem;margin:-.09rem 0 0;border:solid #d7d7d7;border-width:0 1px 1px 0;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);overflow:hidden;}
+.talent-recommendation,
+.top-comments{
+    margin: 0.24rem 0;
+    color: rgba(0,0,0,0.65);
+    font-size: 0.24rem;
+}
+.talent-recommendation > p,
+.top-comments > p{
+    padding: 0.2rem 0.24rem 0;
+}
+.talent-recommendation ul li{
+    padding: 0.22rem 0.24rem 0.3rem;
+    text-align:justify;
+}
+.talent-recommendation .user-block{
+    margin-bottom: 0.1rem;
+}
+.nav {
+    font-size: 0.28rem; 
+    color: rgba(0,0,0,0.65);
+}
+.nav ul{
+    width: 100%;
+    overflow: hidden;  
+}
+.nav ul li{
+    float: left;
+    width: 33%;
+    height: 0.7rem; 
+    line-height: 0.7rem;
+    text-align: center;
+    border-bottom: 0.04rem solid transparent;
+}
+.nav ul li.middle{
+    width: 34%;
+}
+.nav ul li.current{
+    color: #f15b82;
+    border-bottom: 0.04rem solid;
+}
+.ware-buy{
+    height: 0.98rem;
+    width: 100%;
+    background-color: #f7f7f7;
+}
+.ware-buy .buy-wrapper{
+    position: fixed;
+    width: 100%;
+    max-width: 6.4rem;
+    bottom: 0;
+    padding: 0.14rem 0;
+    background-color: #f7f7f7;
+}
+#buy-now.disabled{
+    background-color: #8b8b8b;
+    cursor: default;
+}
+#buy-now.sale-remind,
+#buy-now.pre-onsale{
+    background-color: #fff;
+    cursor: pointer;
+    color: #f15b82;
+    border-color:#f15b82;
+}
+#buy-now.pre-onsale:before{border-radius:.05rem;border-color:#f15b82;}
+#buy-now.pre-onsale{
+    cursor: default;
+}
+#buy-now{
+    font-size: 0.3rem;
+    color: #fff;
+    background-color: #f15b82;
+    border-radius: 0.05rem;
+    height: 0.7rem;
+    overflow:hidden;
+    margin: 0 .24rem;
+    display: block;
+    text-align: center;
+    line-height: 0.7rem;
+}
+.buy-wrapper span{
+    position: absolute;
+    width: 0.44rem; 
+    height: 0.44rem; 
+    left: 0.3rem;
+    top: 0.28rem;
+}
+.buy-wrapper .post-comment{
+    left: 0.3rem;
+    background: url('/resource/web/images/meigou/post_comment.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.buy-wrapper .love-it{
+    right: 0.3rem;
+    left: auto;
+    background: url('/resource/web/images/meigou/love_it.png') no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.buy-wrapper .loved{
+    background-image: url('/resource/web/images/meigou/loved.png');
+    cursor: default;
+}
+.buy-wrapper .service{width:.5rem;padding:.52rem 0 0;color:rgba(0,0,0,.65);font-size:.18rem;text-align:center;float:left;margin:0 .5rem;background:url('../images/icon_service.png') no-repeat;background-size:.5rem .46rem;line-height:.18rem;}
+.ware-discuss, .ware-comments,
+.ware-discuss div, .ware-comments div,
+.ware-discuss ul, .ware-comments ul{
+    background-color: #f7f7f7;
+}
+.ware-comments .count-block{
+    height: 1.3rem;
+}
+.ware-comments .count-block .star-block{
+    position: relative;
+    top: -0.25rem;
+}
+.ware-description{
+    font-size: 0.24rem;
+}
+.desc-list{
+    color: rgba(0,0,0,0.8);
+    overflow:hidden;
+}
+.desc-list li.desc-img img{
+    width: 100%;
+    vertical-align: top;
+}
+.desc-list li.desc-text{
+    margin: 0.3rem 0.24rem;
+    overflow: hidden;
+}
+div.similar-ware-list{
+    background-color: #f7f7f7;
+    padding: 0 0.24rem;
+}
+.similar-ware-list > p{
+    color: rgba(0,0,0,0.4);
+    text-align: center;
+    padding: 0.4rem 0;
+}
+.similar-ware-list ul{
+    overflow: hidden;
+    margin-left: -0.22rem;
+    margin-bottom: 0.4rem;
+}
+.similar-ware-list ul li{
+    float: left;
+    margin-left: 0.22rem;
+    width: 2.85rem; 
+    margin-bottom: 0.22rem;
+}
+.similar-ware-list ul li a{
+    display: block;
+    background-color: #fff;
+}
+.similar-ware-list ul li a img{
+    width: 100%;
+    height: 2.82rem;
+    vertical-align: top;
+}
+.similar-ware-list ul li p{
+    color: rgba(0,0,0,0.9);
+    margin: 0.15rem 0.15rem 0.1rem;
+    height: 0.65rem;
+    overflow: hidden;
+    line-height: 1.3;
+}
+.similar-ware-list ul li a div{
+    padding: 0.1rem 0.15rem 0.15rem;
+    overflow: hidden;
+}
+.similar-ware-list ul li strong{
+    color: #f15b82;
+    float: left;
+}
+.similar-ware-list ul li span{
+    color: rgba(0,0,0,0.4);
+    font-size: 0.2rem;
+    float: right;
+}
+.comment-user{
+    overflow: hidden;
+}
+.comment-user .user-block{
+    float: left;
+}
+.comment-user .star-block{
+    float: right;
+    margin-top: 0.15rem;  
+}
+.comment-user .star-block li{
+    width: 0.23rem; 
+    height: 0.23rem; 
+    margin-left: 0.04rem;
+}
+.comment-content{
+    overflow: hidden;
+}
+.sub-ware{
+    font-size: 0.2rem;
+    color: rgba(0,0,0,0.4)
+    margin: 0.2rem 0;
+}
+.sub-ware span{
+    margin-right: 0.1rem;
+}
+.seller-reply{
+    color: #925e8b;
+    margin-top: 0.1rem;
+}
+.comment-user > span{
+    float: right;
+    margin-top: 0.15rem;
+    font-size: 0.2rem;
+    color: rgba(0,0,0,0.4)
+}
+.ware-discuss ul.discuss-replies{
+    margin: 0.15rem 0;
+    background-color: rgba(0,0,0,0.1);
+    padding: 0.20rem 0.2rem;
+    color: rgba(0,0,0,0.65);
+    font-size: 0.24rem;
+    position: relative;
+}
+.discuss-replies::before{
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-style: solid dashed dashed dashed;
+    border-color: transparent transparent rgba(0,0,0,0.1) transparent;
+    border-width: 8px;
+    left: 0.4rem;
+    top: -16px;
+}
+.discuss-replies strong{
+    color: rgba(0,0,0,0.9)
+}
+.discuss-replies li{
+    margin-bottom: 0.1rem;
+    line-height: 1.3;
+}
+.discuss-replies li:last-child{
+    margin-bottom: 0;
+}
+.no-comments, .no-content{
+    padding: 0.28rem 0;
+    text-align: center;
+    color: rgba(0,0,0,0.4);
+    font-size: 0.24rem;
+    background-color: #f7f7f7;
+}
+.ware-discuss .no-comments{
+    text-align: left;
+    padding-left: 0.24rem;
+}
+.add-operation{
+    border-color:#b1afaf;
+    border-radius: 0.05rem;
+    height: 0.48rem; 
+    margin-top: -0.7rem;
+    margin-right: 0.24rem;
+    padding: 0 0.15rem; 
+    color: rgba(0,0,0,0.7);
+    font-size: 0.24rem;
+    float: right;
+    cursor: pointer;
+    padding-left: 0.4rem;
+    position: relative;
+    background: url('/resource/web/images/meigou/add.png') no-repeat 0.1rem center;
+    background-size: auto 55%;
+}
+.add-operation:before{border-radius: 0.06rem;border-color:#b1afaf;}
+.add-comment{
+    margin-top: -0.9rem;
+}
+.add-discuss{
+    margin-top: 0.2rem;
+}
+.ware-detail .ware-status{position:absolute;top:50%;left:50%;margin:-.72rem 0 0 -.72rem;width:1.4rem;height:1.4rem;text-align:center;border:.02rem solid;border-color:rgba(255,255,255,0.4);border-radius:50%;background-color:rgba(0,0,0,0.4);transform:rotate(-15deg);-webkit-transform:rotate(-15deg);-ms-transform:rotate(-15deg);-o-transform:rotate(-15deg);-moz-transform:rotate(-15deg);z-index:1;}
+.ware-detail .ware-status .txt{font-size:.28rem;color:#fff;line-height:.36rem;margin-top:.45rem;}
+.ware-detail .ware-status p{font-size:.17rem;color:#fff;line-height:.2rem;letter-spacing:-1px;}
+.input-block{
+    margin: 0.24rem;
+    overflow: hidden;
+}
+.input-block input,
+.input-block button,
+.input-block .textarea-wrapper{
+    width: 85%;
+    border-radius: 0.05rem;
+    border: 1px solid rgba(0,0,0,0.5);
+    overflow: hidden;
+    float: left;
+}
+.input-block .textarea-wrapper div{
+    position: relative;
+    line-height: 1;
+    margin: 0.1rem 0.08rem;
+}
+.input-block .textarea-wrapper div p{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    word-wrap: break-word;
+    white-space: pre;
+    min-height: 0.28rem;
+    font-size: 0.24rem;
+    max-height: 3rem;
+    vertical-align: top;
+    line-height: 1.1;
+}
+.input-block textarea{
+    border: 0 none;
+    background-color: #f7f7f7;
+    height: 0.28rem;
+    width: 100%;
+    font-size: 0.24rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 1.1;
+    vertical-align: top;
+    color: rgba(0,0,0,0.9);
+    color: rgba(0,0,0,0.3);
+}
+.input-block textarea::-webkit-input-placeholder { /* WebKit browsers */
+    color: rgba(0,0,0,0.3);
+}
+.input-block textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgba(0,0,0,0.3);
+}
+.input-block textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgba(0,0,0,0.3);
+}
+.input-block textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: rgba(0,0,0,0.3);
+}
+.input-block button{
+    width: 10%;
+    margin-left: 4%;
+    font-size: 0.24rem;
+    color: #f15b82;
+    height: 0.5rem;
+    border: 0 none;
+}
+.input-block button.disabled{
+    color: rgba(0,0,0,0.6);
+}
+.img-pop{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    max-width: 640px;
+    background-color: rgba(0,0,0,0.9);
+    overflow: hidden;
+}
+.img-pop .img-swiper{
+    top: 0.7rem;
+    bottom: 0.7rem;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.img-pop .close{
+    height: 0.3rem;
+    width: 0.3rem;
+    margin: 0.2rem;
+    position: relative;
+}
+.img-pop .close span{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    top: 0.15rem;
+}
+.img-pop .close span.top{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+.img-pop .close span.bottom{
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+}
+.img-pop .img-swiper-container .swiper-slide{
+    height: 6.4rem;
+    overflow: hidden;
+    text-align: center;
+}
+.swiper-container-horizontal > div.img-swiper-pagination{
+    text-align: center;
+    bottom: 0;
+    height: 0.52rem; 
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+}
+.swiper-container-horizontal > .img-swiper-pagination span{
+    margin: 0 0.05rem;
+    background-color: #d7d7d7; 
+}
+.swiper-container-horizontal > .img-swiper-pagination .swiper-pagination-bullet-active{
+    background-color: #fff;
+}
+.img-pop .swiper-slide{
+}
+.img-pop img{
+    margin-top: 1.2rem;
+    height: 100%;
+}

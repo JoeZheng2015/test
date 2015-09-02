@@ -14,28 +14,30 @@
 		width: 640px;
 		margin: 100px auto;
 	}
-	
+	.video {
+		display: none;
+	}
 	</style>
 </head>
 <body>
 	<div id="wrapper">
-		<a href="#" class="love not_love">赞</a>
-		<span class="num">暂无人觉得赞</span>
+		<img class="video-cover" src="./images/test.png" alt="">
+		<video class="video"src="http://www.w3school.com.cn/i/movie.ogg" preload="none" controls width="640px" height="640px"></video>
 	</div>
 	<script src="/bower_components/zepto/zepto.min.js"></script>
 	<script>
 		$(function () {
-			function curry(fn) {
-				var args = Array.prototype.slice.call(arguments, 1);
-				return function () {
-					var innerArgs = Array.prototype.slice.call(arguments);
-					var finalArgs = args.concat(innerArgs);
-				};
-			}
-			curry(1, 2, 4)('one', 'two', 'three');
-
-
-
+			$('.video-cover').on('click', function(e) {
+				$('.video').attr({'preload': 'load'})
+			});
+			$('.video').on('loadeddata', function(e) {
+				$(this).show().get(0).play();
+				$('.video-cover').hide();
+			});
+			$('.video').on('error', function(e) {
+				alert('error');
+			});
+			
 			$('.love').on('click', function (e) {
 				e.preventDefault();
 				var $el = $(this),

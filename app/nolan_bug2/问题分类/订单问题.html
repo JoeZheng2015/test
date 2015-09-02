@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订单问题</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<script type="text/javascript">
+	!function(a){function b(){var b=g.getBoundingClientRect().width;a.rem=(b/6.4>100?100:(b/6.4<50?50:b/6.4)),g.style.fontSize=a.rem+"px"}var g=a.document.documentElement,e;a.addEventListener("resize",function(){clearTimeout(e),e=setTimeout(b,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(e),e=setTimeout(b,300))},!1),b()}(window);
+	</script>
+	<link rel="stylesheet" type="text/css" href="http://www.meilapp.com/resource/web/css/mobile/meila.min.css" />
+	<style type="text/css">
+	.faq-hot dt{line-height: 0.3rem;padding: .2rem .24rem .2rem .24rem;position:relative;background-color:#fff;font-size:0.24rem;}
+	.faq-hot dt:before{content:'';display: inline-block; width: .15rem; height: .15rem; border: .02rem solid; border-color:transparent #b2b2b2 #b2b2b2 transparent ;  transform: rotate(45deg);-webkit-transform:rotate(45deg); float: right;border-radius: 2px;}  
+	.faq-hot dt.open:before{border-color:#f15d83 transparent transparent #f15d83;position: relative;bottom: -0.1rem;}
+	.faq-hot dd{padding:.24rem;display: none;text-align:justify;}
+	.faq-hot dd .extra-statement{font-size:.2rem;}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="faq-hot">
+        <dl>
+            <dt>Q：如何查看订单？</dt>
+            <dd>A：在页面右下角“我的”-“订单”中查询订单。</dd>
+            <dt>Q：如何取消订单？</dt>
+            <dd>A：目前只能在支付成功之前取消订单，付款后的订单请联系商家申请退款，未来美啦正在对此功能优化改进，敬请期待。</dd>
+            <dt>Q：订单中收货地址和电话如何修改？</dt>
+            <dd>A：目前暂时不支持用户前端自动修改订单中联系人信息，美妞可以将要修改的信息留言给美啦客服，客服会进行记录跟踪修改后回复。</dd>
+            <dt>Q：已发货的订单可以修改收货信息吗？</dt>
+            <dd>A：目前只支持未发货订单修改，已发货订单不支持此功能，带来不便，敬请谅解！</dd>
+            <dt>Q：未发货的订单可以合并吗？</dt>
+            <dd>A：目前系统暂时不支持用户端的订单合并功能，后台处理配货订单时会尽量安排同批发货。未来美啦正在对此功能优化改进，敬请期待。</dd>    
+        </dl>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8" src="http://www.meilapp.com/resource/web/js/mobile/zepto.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://www.meilapp.com/resource/web/js/mobile/M.min.js"></script>
+<script type="text/javascript">
+ $("body").on("click",".faq-hot dt",function(){
+        $(this).next().siblings("dd").hide();
+        $(this).siblings("dt").removeClass("open");
+        $(this).toggleClass("open"); 
+        $(this).next().toggle();
+    })
+    $('dt,dd',$('.faq-hot')).addClass('g-border-b');
+</script>
+</body>
+</html>

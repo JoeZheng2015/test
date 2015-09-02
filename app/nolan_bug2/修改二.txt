@@ -1,0 +1,6 @@
+1..faq-hot {padding:padding: .2rem .24rem .2rem .24rem;)
+2.帮助与反馈页面，html 和css均有变动
+3.merchant-faq.png有更新
+4.问题页面，箭头大小，圆角；间距问题
+5.retina 1px问题
+6，帮助与反馈页面，圆形logo，方形未写死问题;红色竖线加了圆角
