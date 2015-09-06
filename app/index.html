@@ -17,27 +17,58 @@
 	.video {
 		display: none;
 	}
+	.box {
+		position: relative;
+		width: 320px;
+		background-color: #000;
+	}
+	.loading {
+		width: 44px;
+		height: 44px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -22px;
+		margin-left: -22px;
+		animation: rotate 1.2s linear infinite;
+		-webkit-animation: rotate 1.2s linear infinite; 
+		-moz-animation: rotate 1.2s linear infinite; 
+		-ms-animation: rotate 1.2s linear infinite; 
+		-o-animation: rotate 1.2s linear infinite;
+	}
+	@keyframes rotate{
+	from { transform: rotate(0deg);}
+	to { transform: rotate(360deg);}
+	}
+	@-webkit-keyframes rotate{
+	from { -webkit-transform: rotate(0deg);}
+	to { -webkit-transform: rotate(360deg);}
+	}
+	@-moz-keyframes rotate{
+	from { -moz-transform: rotate(0deg);}
+	to { -moz-transform: rotate(360deg);}
+	}
+	@-o-keyframes rotate{
+	from { -o-transform: rotate(0deg);}
+	to { -o-transform: rotate(360deg);}
+	}
+	@-ms-keyframes rotate{
+	from { -ms-transform: rotate(0deg);}
+	to { -ms-transform: rotate(360deg);}
+	}
 	</style>
 </head>
 <body>
 	<div id="wrapper">
-		<img class="video-cover" src="./images/test.png" alt="">
-		<video class="video"src="http://www.w3school.com.cn/i/movie.ogg" preload="none" controls width="640px" height="640px"></video>
+		<div class="box">
+			<video class="video"src="http://www.w3school.com.cn/i/movie.ogg" preload="none" controls width="640px" height="640px"></video>
+			<img class="loading rotate" src="./images/loading.png" alt="">
+		</div>
 	</div>
 	<script src="/bower_components/zepto/zepto.min.js"></script>
 	<script>
 		$(function () {
-			$('.video-cover').on('click', function(e) {
-				$('.video').attr({'preload': 'load'})
-			});
-			$('.video').on('loadeddata', function(e) {
-				$(this).show().get(0).play();
-				$('.video-cover').hide();
-			});
-			$('.video').on('error', function(e) {
-				alert('error');
-			});
-			
+			add(1)(2,3,4);
 			$('.love').on('click', function (e) {
 				e.preventDefault();
 				var $el = $(this),
