@@ -14,54 +14,72 @@
 		width: 640px;
 		margin: 100px auto;
 	}
-	
+	.video {
+		display: none;
+	}
+	.box {
+		position: relative;
+		width: 320px;
+		background-color: #000;
+	}
+	.loading {
+		width: 44px;
+		height: 44px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -22px;
+		margin-left: -22px;
+		animation: rotate 1.2s linear infinite;
+		-webkit-animation: rotate 1.2s linear infinite; 
+		-moz-animation: rotate 1.2s linear infinite; 
+		-ms-animation: rotate 1.2s linear infinite; 
+		-o-animation: rotate 1.2s linear infinite;
+	}
+	@keyframes rotate{
+	from { transform: rotate(0deg);}
+	to { transform: rotate(360deg);}
+	}
+	@-webkit-keyframes rotate{
+	from { -webkit-transform: rotate(0deg);}
+	to { -webkit-transform: rotate(360deg);}
+	}
+	@-moz-keyframes rotate{
+	from { -moz-transform: rotate(0deg);}
+	to { -moz-transform: rotate(360deg);}
+	}
+	@-o-keyframes rotate{
+	from { -o-transform: rotate(0deg);}
+	to { -o-transform: rotate(360deg);}
+	}
+	@-ms-keyframes rotate{
+	from { -ms-transform: rotate(0deg);}
+	to { -ms-transform: rotate(360deg);}
+	}
 	</style>
 </head>
 <body>
 	<div id="wrapper">
-		<a href="#" class="love not_love">赞</a>
-		<span class="num">暂无人觉得赞</span>
+		
 	</div>
 	<script src="/bower_components/zepto/zepto.min.js"></script>
 	<script>
 		$(function () {
-			[1,2,3,4].forEach(function (item, index) {
-				debugger;
-				var a = ++index;
-			});
-
-
-
-			$('.love').on('click', function (e) {
-				e.preventDefault();
-				var $el = $(this),
-					$num = $('.num'),
-					num = parseInt($num.text());
-				if($el.hasClass('not_love')) {
-					$el.text('不赞');
-					if (num) {
-						$num.text(num + 1 + '人已点赞');
-					}
-					else {
-						$num.text('1人已点赞');
-					}
-					$el.removeClass('not_love').addClass('already_love');
-				}
-				else if ($el.hasClass('already_love')) {
-					$el.text('赞');
-					if (num - 1) {
-						$num.text(num - 1 + '人已点赞')
-					}
-					else {
-						$num.text('暂无人觉得赞');
-					}
-					$el.removeClass('already_love').addClass('not_love');
-				}
-				else {
-					return false;
-				}
-			});
-		})
+			function highAndLow(numbers){
+			  var arr = numbers.split(' '), l = arr.length;
+			  for (var i = 0; i < l; i++) {
+			    for (var j = i + 1; j < l; j++) {
+			      if (arr[i] - arr[j] < 0) {
+			        var temp = arr[i];
+			        arr[i] = arr[j];
+			        arr[j] = temp;
+			      }
+			    }
+			  }
+			  return arr;
+			}
+			console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+		});
 	</script>
 </body>
 </html>
