@@ -1,29 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="format-detection" content="telephone=no" />
-	<meta name="msapplication-tap-highlight" content="no" />
-	<link rel="stylesheet" href="../../../dist/css/summer/task2.css">
-	<script src="../../js/base/setFontSize.js"></script>
-	<title>漂亮的宣传手册</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <link rel="stylesheet" href="../../css/summer/task2.css">
+    <link rel="stylesheet" href="../../css/summer/font-awesome.min.css">
+    <script src="../../js/base/setFontSize.js"></script>
+    <title>漂亮的宣传手册</title>
 </head>
 <body>
-	<div id="wrapper">
-		<div class="ascend"></div>
-		<ul class="slides">
-			<li class="slide" data-index="1"></li>
-			<li class="slide" data-index="2"></li>
-			<li class="slide" data-index="3"></li>
-			<li class="slide" data-index="4"></li>
-			<li class="slide" data-index="5"></li>
-		</ul>
-		<div class="descend"></div>
-	</div>
-	<script src="../../../bower_components/zepto/zepto.min.js"></script>
-	<script src="../../../bower_components/zepto/animate.js"></script>
-	<script src="../../js/summer/task2.js"></script>
+    <div id="wrapper">
+        <div class="music-box">
+            <img class="music-gif" src="../../../files/images/music.gif" alt="">
+            <img class="music-off rotate" src="../../../files/images/music_off.png" alt="">
+        </div>
+        <ul class="slides">
+            <li class="slide-1 slide">
+                <img class="avatar" src="../../../files/images/sm_avatar.png" alt="头像">
+                <dl class="info">
+                    <dt><i class="fa fa-bookmark"></i>个人资料</dt> 
+                    <dd class="pt-page-moveFromLeft"><span><i class="fa fa-user"></i>姓名：</span>郑俊鑫</dd>
+                    <dd class="pt-page-moveFromRight"><span><i class="fa fa-graduation-cap"></i>学校：</span>北京邮电大学</dd>
+                    <dd class="pt-page-moveFromLeft"><span><i class="fa fa-github"></i>Github：</span>JoeZheng2015</dd>
+                    <dd class="pt-page-moveFromRight"><span><i class="fa fa-envelope-o"></i>邮箱：</span>zheng.junxin@outlook.com</dd>
+                    <dd class="pt-page-moveFromLeft"><span><i class="fa fa-qq"></i>QQ：</span>769191296</dd>
+                </dl>
+            <li class="slide-2 slide hide">
+                <ul class="skills">
+                    <li class="pt-page-moveFromTop">
+                        <img src="../../../files/images/icon/html.png" alt="html">
+                        <div>
+                            熟悉HTML，了解语义化
+                        </div>
+                    </li>
+                    <li class="pt-page-moveFromRight">
+                        <img src="../../../files/images/icon/css.png" alt="css">
+                        <div>
+                            熟悉CSS，能完成基本页面设计
+                        </div>
+                    </li>
+                    <li class="pt-page-moveFromLeft">
+                        <img src="../../../files/images/icon/css3.png" alt="css3">
+                        <div>
+                            了解CSS3的新特性
+                        </div>
+                    </li>
+                    <li class="pt-page-moveFromBottom">
+                        <img src="../../../files/images/icon/js.png" alt="js">
+                        <div>
+                            熟悉原生的JS，能运用模块化编程
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="slide-3 slide hide">
+                <ul class="skills">
+                    <li class="nodejs pt-page-scaleUpCenter">
+                        <img src="../../../files/images/icon/nodejs.png" alt="nodejs">
+                    </li>
+                    <li class="gulp pt-page-scaleUpCenter">
+                        <img src="../../../files/images/icon/gulp.png" alt="gulp">
+                    </li>
+                    <li class="bower pt-page-scaleUpCenter">
+                        <img src="../../../files/images/icon/bower.png" alt="bower">
+                    </li>
+                    <li class="yeoman pt-page-scaleUpCenter">
+                        <img src="../../../files/images/icon/yeoman.png" alt="yeoman">
+                    </li>
+                </ul>
+                <div class="tab nodejs pt-page-moveCircle">
+                    <p class="content">了解基本的npm操作</p>
+                </div>
+                <div class="tab gulp">
+                    <p class="content">熟练的使用gulp，配合API能完成需求</p>
+                </div>
+                <div class="tab bower">
+                    <p class="content">
+                        能使用bower完成依赖管理
+                    </p>
+                </div>
+                <div class="tab yeoman">
+                    <p class="content">
+                        了解yeoman的基本操作来构建项目
+                    </p>
+                </div>
+            </li>
+            <li class="slide-4 slide hide">
+                <ul class="books">
+                    <li>
+                        <div class="img-box">
+                            <img src="../../../files/images/icon/advanced.jpg" alt="高级程序设计">
+                        </div>
+                        <div class="pt-page-rotateCarouselRightIn book-info">这是一本适合新手从入门，到进阶，而且可以一翻再翻的书</div>
+                    </li>
+                    <li>
+                        <div class="img-box">
+                            <img src="../../../files/images/icon/js.jpg" alt="权威指南">
+                        </div>
+                        <div class="pt-page-rotateCarouselLeftIn book-info">
+                            是一本平时可以拿来当做字典，必要时防身的书
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img-box">
+                            <img src="../../../files/images/icon/goodpart.jpg" alt="语言精粹">
+                        </div>
+                        <div class="pt-page-rotateCarouselRightIn book-info">
+                            刚开始看,从原理上来讲JavaScript的书，蛮不错的
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="arrow">
+            <span></span>
+        </div>
+    </div>
+    <script src="../../../bower_components/zepto/zepto.min.js"></script>
+    <script src="../../../bower_components/zepto/animate.js"></script>
+    <script src="../../js/summer/task2.js"></script>
 </body>
 </html>
