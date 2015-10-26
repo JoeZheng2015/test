@@ -10,11 +10,13 @@
     var handler = setInterval(brocast, 5000);
     waterfall();
     var boxTable = getBoxTable();
+    var doing = false;
     for (var i = 0, l = boxs.length; i < l; i++) {
         addEvent(boxs[i], 'click', function (e) {
-            if (this.classList[1] === 'zoom') {
+            if (this.classList[1] === 'zoom' || doing) {
                 return;
             }
+            doing = true;
             var zoom =document.querySelector('.zoom');
             tabAnimation(this);
             this.className = 'box zoom';
@@ -96,7 +98,9 @@
         return [width, height, offsetLeft, offsetTop];
     }
     function transition(el, width, height, left, top, color) {
-        console.log(arguments);
-          el.style.cssText += 'transition: all 0.5s; width: ' + width + 'px; height: ' + height + 'px; left: ' + left +'px;top: ' + top + 'px;-webkit-transition: all 0.5s; width: ' + width + 'px; height: ' + height + 'px; left: ' + left +'px;top: ' + top + 'px';
+        setTimeout(function() {
+            doing = false;
+        }, 500);
+        el.style.cssText += 'transition: all 0.5s; width: ' + width + 'px; height: ' + height + 'px; left: ' + left +'px;top: ' + top + 'px;-webkit-transition: all 0.5s; width: ' + width + 'px; height: ' + height + 'px; left: ' + left +'px;top: ' + top + 'px';
     }
 }
