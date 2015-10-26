@@ -9,6 +9,20 @@ $(function () {
             $('.slides').css(prefixer('transform', 'translateY', 0));
         }, 300);
     }, false);
+    $('.music-off').on('click', function(e) {
+        var $this = $(this);
+        var audio = document.getElementById('audio');
+        if (audio.paused) {
+            audio.play();
+            $this.addClass('rotate');
+            $('.music-gif').show();
+        }
+        else {
+            audio.pause();
+            $this.removeClass('rotate');
+            $('.music-gif').hide();
+        }
+    });
     $('.arrow').on('touchend', function (e) {
         e.preventDefault();
         swipe('up');
