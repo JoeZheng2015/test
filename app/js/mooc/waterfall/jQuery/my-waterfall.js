@@ -6,7 +6,7 @@ $(window).load(function(){
 			$.each(dataInt.data, function(index,value) {
 				var pin = $("<div>").addClass("pin").appendTo($("#main"));
 				var box = $("<div>").addClass("box").appendTo(pin);
-				$("<img>").attr("src","../../../../images/mooc/waterfall/"+$(value).attr("src")).appendTo(box);
+				$("<img>").attr("src","../../../../../files/images/mooc/waterfall/"+$(value).attr("src")).appendTo(box);
 
 			});
 			waterfall();

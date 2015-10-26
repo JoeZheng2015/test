@@ -12,7 +12,7 @@ window.onload = function () {
 				boxDiv.className = "box";
 				pinDiv.appendChild(boxDiv);
 				var img = document.createElement("img");
-				img.src = "../../../../images/mooc/waterfall/"+dataInt.data[i].src;
+				img.src = "../../../../../files/images/mooc/waterfall/"+dataInt.data[i].src;
 				boxDiv.appendChild(img);
 			}
 			waterfall();
