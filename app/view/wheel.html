@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.circle-icon-list {
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			background-color: #fff;
+			position: relative;
+			border-radius: 50%;
+			box-shadow:0 0 10px 10px black inset;
+			overflow: hidden;
+			-webkit-animation: myRotate 30s infinite;
+			-webkit-animation-timing-function: linear;
+			animation: myRotate 30s infinite;
+			animation-timing-function: linear;
+		}
+		@-webkit-keyframes myRotate {
+			from {
+				-webkit-transform: rotate(0deg);
+			}
+			to {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@keyframes myRotate{
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+		.circle-icon-list li {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -50px;
+			background-color: transparent;
+			-webkit-transform-origin: 50% 100%;
+			transform-origin: 50% 100%;
+		}
+		.circle-icon-list li:nth-child(2) {
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+		.circle-icon-list li:nth-child(3) {
+			-webkit-transform: rotate(90deg);
+			transform: rotate(90deg);
+		}
+		.circle-icon-list li:nth-child(4) {
+			-webkit-transform: rotate(135deg);
+			transform: rotate(135deg);
+		}
+		.circle-icon-list li:nth-child(5) {
+			-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+		}
+		.circle-icon-list li:nth-child(6) {
+			-webkit-transform: rotate(225deg);
+			transform: rotate(225deg);
+		}
+		.circle-icon-list li:nth-child(7) {
+			-webkit-transform: rotate(270deg);
+			transform: rotate(270deg);
+		}
+		.circle-icon-list li:nth-child(8) {
+			-webkit-transform: rotate(315deg);
+			transform: rotate(315deg);
+		}
+		.icon {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			margin-left: -3px;
+			background-color: #ffd700;
+		}
+		.icon:after {
+			content: ' ';
+			position: absolute;
+			width: 6px;
+			height: 6px;
+			background-color: #ffd700;
+			border-radius: 50%;
+			-webkit-transform-origin: 50% 1500%;
+			-webkit-transform: rotate(22.5deg);
+			transform-origin: 50% 1500%;
+			transform: rotate(22.5deg);
+		}
+		.line {
+			width: 1px;
+			height: 94px;
+			position: absolute;
+			left: 50%;
+			top: 6px;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+			background-color: #000;
+		}
+		.line:after {
+			content: ' ';
+			width: 1px;
+			height: 188px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			-webkit-transform-origin: 50% 100%;
+			-webkit-transform: rotate(22.5deg);
+			transform-origin: 50% 100%;
+			transform: rotate(22.5deg);
+			background-color: #000;
+		}
+		.center {
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			background-color: #ffd700;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<ul class="circle-icon-list">
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<li><span class="icon"></span><span class="line"></span></li>
+		<span class="center"></span>
+	</ul>
+</body>
+</html>
