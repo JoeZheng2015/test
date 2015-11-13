@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>书的翻页效果</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style: none;
+		}
+		.wrapper {
+			-webkit-perspective: 1000px;
+			-moz-perspective: 1000px;
+			-o-perspective: 1000px;
+			perspective: 1000px;
+		}
+		.book {
+			position: relative;
+			width: 140px;
+			margin: 100px auto;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-o-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			transform: rotateX(45deg);
+		}
+		.page {
+			position: absolute;
+			width: 140px;
+			height: 200px;
+			background-color: #ddd;
+			color: #000;
+			line-height: 200px;
+			text-align: center;
+			-webkit-transform-origin: 0% 50%;
+			transform-origin: 0% 50%;
+			-webkit-transition: -webkit-transform 1s;
+			-moz-transition: -moz-transform 1s;
+			-o-transition: -o-transform 1s;
+			transition: transform 1s;
+			transform: rotateY(0deg);
+		}
+		.book:hover .page {
+			transform: rotateY(-180deg);
+		}
+		.page:nth-child(10) {
+			transition-delay: .2s;
+		}
+		.page:nth-child(9) {
+			transition-delay: .4s;
+		}
+		.page:nth-child(8) {
+			transition-delay: .6s;
+		}
+		.page:nth-child(7) {
+			transition-delay: .8s;
+		}
+		.page:nth-child(6) {
+			transition-delay: 1s;
+		}
+		.page:nth-child(5) {
+			transition-delay: 1.2s;
+		}
+		.page:nth-child(4) {
+			transition-delay: 1.4s;
+		}
+		.page:nth-child(3) {
+			transition-delay: 1.6s;
+		}
+		.page:nth-child(2) {
+			transition-delay: 1.8s;
+		}
+		.page:nth-child(1) {
+			transition-delay: 2s;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<ul class="book">
+			<li class="page">
+				第九页
+			</li>
+			<li class="page">
+				第八页
+			</li>
+			<li class="page">
+				第七页
+			</li>
+			<li class="page">
+				第六页
+			</li>
+			<li class="page">
+				第五页
+			</li>
+			<li class="page">
+				第四页
+			</li>
+			<li class="page">
+				第三页
+			</li>
+			<li class="page">
+				第二页
+			</li>
+			<li class="page">
+				第一页
+			</li>
+			<li class="page">
+				CSS3旋转特性
+			</li>
+		</ul>
+	</div>
+	<script>
+		document.querySelector('.page').addEventListener('click', function(e) {
+			this.className += ' rotate';
+		}, false)
+	</script>
+</body>
+</html>
