@@ -14,7 +14,9 @@
     "tests"
   ],
   "devDependencies": {
-    "zepto": "~1.1.6",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.21",
+    "zepto": "~1.1.6"
   }
 }
