@@ -1,0 +1,1 @@
+module.exports = '这是从content来的';
