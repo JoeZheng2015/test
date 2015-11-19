@@ -37,7 +37,12 @@ hua();
 function hua() {
 	$('#J_LotteryBTN').click();
 	setTimeout(function() {
-		$('.J_Close').click();
-		hua();
+		if ($('.J_Close') ) {
+			$('.J_Close').click();
+			hua();
+		}
+		else {
+			return false;
+		}
 	}, 5000);
 }
