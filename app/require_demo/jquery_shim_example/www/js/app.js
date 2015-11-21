@@ -1,17 +1,15 @@
-// Place third party dependencies in the lib folder
-//
-// Configure loading modules from the lib directory,
-// except 'app' ones, 
+// 将app.js作为一个专门的配置文件使用
 requirejs.config({
     "baseUrl": "js/lib",
     "paths": {
       "app": "../app"
     },
+    // 定义两个插件对jquery的依赖
     "shim": {
         "jquery.alpha": ["jquery"],
         "jquery.beta": ["jquery"]
     }
 });
 
-// Load the main app module to start the app
+// 载入main.js启动整个脚本
 requirejs(["app/main"]);
