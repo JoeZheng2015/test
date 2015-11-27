@@ -15,7 +15,7 @@ function Bubble(options) {
     this.ctx = this.canvas.getContext('2d');
     this.circles = [];
     for(var i = 0; i < this.number; i++) {
-        this.circles.push(new Circle(this.ctx, this.canvas.width, this.canvas.height));
+        this.circles.push(new Circle(this.ctx, this.canvas.width));
     }
     this.animate();
 }
@@ -37,11 +37,9 @@ Bubble.prototype = {
         requestAFrame(this.animate.bind(this));
     }
 };
-function Circle(ctx, width, height, velocity) {
+function Circle(ctx, width) {
     this.ctx = ctx;
     this.width = width;
-    this.height = height;
-    this.velocity = velocity;
     this.init();
 }
 Circle.prototype = {
@@ -51,7 +49,7 @@ Circle.prototype = {
         this.y = -Math.random() * 100;
         this.alpha = 0.1 + Math.random() * 0.3;
         this.scale = 0.1 + Math.random() * 0.3;
-        this.velocity = this.velocity || Math.random();
+        this.velocity = Math.random();
     },
     draw: function() {
         if (this.alpha <= 0) {
