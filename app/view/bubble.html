@@ -5,109 +5,24 @@
     <title>Document</title>
     <style>
         #demo {
-            height: 600px;
+            height: 300px;
             background-color: black;
         }
         #bubbleCanvas {
             position: absolute;
             left: 50%;
-            -webkit-transform: translate3d(-50%,0,0);
-            -moz-transform: translate3d(-50%,0,0);
-            -ms-transform: translate3d(-50%,0,0);
-            -o-transform: translate3d(-50%,0,0)
+            margin-left: -150px;
+            width: 300px;
         }
     </style>
 </head>
 <body>
-    <div id="demo"></div>
-    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <div id="demo">
+        <canvas id="bubbleCanvas"></canvas>
+    </div>
+    <script src="../js/Bubble.js"></script>
     <script>
-        (function(){
-            var width, height, canvas, ctx, circles;
-            function initHeader() {
-                try{
-                    canvas = document.getElementById('bubbleCanvas');
-                    if($("#bubbleCanvas").length>0){
-                        width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
-                        height = 255;
-                        canvas.width = width;
-                        canvas.height = height;
-                        ctx = canvas.getContext('2d');
-                        circles = [];
-                        for(var x = 0; x < width*0.5; x++) {
-                            var c = new Circle();
-                            circles.push(c);
-                        }
-                        animate();
-                    }
-                }catch(ex){
-                    if(window.cosole&&window.cosole.log){cosole.log(ex)
-                }}
-            }
-            function addListeners() {
-                try{
-                    if($("#bubbleCanvas").length>0){
-                        window.addEventListener('resize', resize);
-                    }
-                }catch(ex){if(window.cosole&&window.cosole.log){cosole.log(ex)}}
-            }
-            function resize() {
-                width = window.innerWidth*0.25>300?window.innerWidth*0.25:300;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-            }
-            function animate() {
-                // 清除整个画布
-                ctx.clearRect(0,0,width,height);
-                for(var i in circles) {
-                    circles[i].draw();
-                }
-                window.requestAFrame = (function () {
-                    return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
-                        function (callback) {
-                            return window.setTimeout(callback, 1000 / 60); // 没有requrestAnimationFrame，则用定时器，帧数为60 fps
-                        };
-                })();
-                requestAFrame(animate);
-            }
-            // 操作Canvas
-            function Circle() {
-                var _this = this;
-
-                // 构造函数
-                (function() {
-                    _this.pos = {};
-                    init();
-                })();
-                // 初始化泡泡的位置、透明度、大小、速度
-                function init() {
-                    _this.pos.x = Math.random()*width;
-                    _this.pos.y = height+Math.random()*100; // 在canvas原有高度加上0-100的地方出现
-                    _this.alpha = 0.1+Math.random()*0.3;
-                    _this.scale = 0.1+Math.random()*0.3;
-                    _this.velocity = Math.random();
-                }
-
-                this.draw = function() {
-                    // 如果透明度小于等于0了，就重新初始化
-                    // 在视图里就是，一个泡泡消失了，就生成一个新的
-                    if(_this.alpha <= 0) {
-                        init();
-                    }
-                    _this.pos.y -= _this.velocity; // 高度不断的减少？
-                    _this.alpha -= 0.0005; // 透明度不断减少
-                    ctx.beginPath(); // 绘制泡泡的路径？
-                    ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false); // 在画布上画泡泡
-                    ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')'; // 这是给画布上颜色，还是泡泡啊？
-                    ctx.fill();
-                };
-            }
-            //适配博客园博客
-            $("#demo").append("<canvas id=\"bubbleCanvas\" width=\"300\" height=\"100%\"></canvas>");
-            initHeader();
-            addListeners();
-        }());
+    var bubble = new Bubble('#bubbleCanvas');
     </script>
 </body>
 </html>
