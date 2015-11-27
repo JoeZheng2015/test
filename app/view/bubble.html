@@ -17,12 +17,16 @@
             -o-transform: translateX(-50%);
             transform: translateX(-50%);
         }
+        .snow {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div id="demo">
         <canvas id="bubbleCanvas"></canvas>
     </div>
+    <img src="../../files/images/snow.png" alt="雪花" class="snow">
     <script src="../js/Bubble.js"></script>
     <script>
     var bubble = new Bubble('#bubbleCanvas');

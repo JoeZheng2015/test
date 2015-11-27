@@ -58,8 +58,8 @@ Circle.prototype = {
         this.y += this.velocity;
         this.alpha -= 0.0005;
         this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.scale * 10, 0, 2 * Math.PI, false);
-        this.ctx.fillStyle = 'rgba(255,255,255,'+ this.alpha+')';
+        var img = document.querySelector('.snow');
+        this.ctx.drawImage(img, this.x, this.y, this.scale * 30, this.scale * 30);
         this.ctx.fill();
     }
 };
