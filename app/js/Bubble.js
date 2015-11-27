@@ -1,14 +1,21 @@
+/**
+ * 初始化泡泡类
+ * @param {Object} options 规定画布的参数
+ * {string}options 指定画布元素
+ * {number}options.width 画布的宽度，默认为300
+ * {number}options.height 画布的高度，默认为300
+ * {number}options.number 泡泡的数量，默认为画布宽度的一半
+ */
 function Bubble(options) {
     this.el = typeof options === 'string' ? options : options.el;
     this.canvas = document.querySelector(this.el);
-    this.canvas.width = options.width || 300;
+    this.canvas.width = options.width || 1000;
     this.canvas.height = options.height || 300;
+    this.number = options.number || this.canvas.width * 0.5;
     this.ctx = this.canvas.getContext('2d');
     this.circles = [];
-    this.number = options.number || this.canvas.width * 0.5;
     for(var i = 0; i < this.number; i++) {
-        var c = new Circle(this.ctx, this.canvas.width, this.canvas.height);
-        this.circles.push(c);
+        this.circles.push(new Circle(this.ctx, this.canvas.width, this.canvas.height));
     }
     this.animate();
 }
@@ -19,23 +26,22 @@ Bubble.prototype = {
         for (var len = this.number; len--;) {
             this.circles[len].draw();
         }
-        requestAFrame = window.requestAnimationFrame
-            || window.webkitRequestAnimationFrame
-            || window.mozRequestAnimationFrame
-            || window.oRequestAnimationFrame
-            || window.msRequestAnimationFrame
+        requestAFrame = requestAnimationFrame
+            || webkitRequestAnimationFrame
+            || mozRequestAnimationFrame
+            || oRequestAnimationFrame
+            || msRequestAnimationFrame
             || function (callback) {
-                return window.setTimeout(callback, 1000 / 60);
+                return setTimeout(callback, 1000 / 60);
             };
-        // 第二次调用时，this变为window。所以this.ctx是undefined
         requestAFrame(this.animate.bind(this));
     }
 };
 function Circle(ctx, width, height, velocity) {
-    this.constructor.prototype.ctx = ctx;
-    this.constructor.prototype.width = width;
-    this.constructor.prototype.height = height;
-    this.constructor.prototype.velocity = velocity;
+    this.ctx = ctx;
+    this.width = width;
+    this.height = height;
+    this.velocity = velocity;
     this.init();
 }
 Circle.prototype = {
@@ -45,7 +51,7 @@ Circle.prototype = {
         this.y = -Math.random() * 100;
         this.alpha = 0.1 + Math.random() * 0.3;
         this.scale = 0.1 + Math.random() * 0.3;
-        this.velocity = Math.random();
+        this.velocity = this.velocity || Math.random();
     },
     draw: function() {
         if (this.alpha <= 0) {
