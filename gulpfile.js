@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
-var autoprefixer = require('gulp-autoprefixer');
 gulp.task('serve', function () {
 	browserSync({
 		files: '**',
@@ -14,11 +13,8 @@ gulp.task('serve', function () {
 		}
 	});
 });
-gulp.task('prefixer', function () {
-	return gulp.src('app/css/summer/**/*.css')
-		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
-			cascade: false
-		}))
-		.pipe(gulp.dest('dist/css/summer/'));
-});
+gulp.task('compressjs', function() {
+	return gulp.src('app/**/*.js')
+		.pipe($.uglify())
+		.pipe(gulp.dest('dist'));
+})
