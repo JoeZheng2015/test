@@ -57,7 +57,7 @@ Circle.prototype = {
     init: function () {
         this.x = Math.random() * this.width;
         this.y = -Math.random() * 100;
-        this.opacity = 1 - Math.random() * opacityC;
+        this.opacity = 1 - Math.random() * this.opacityC;
         this.scale = 0.1 + Math.random() * 0.3;
         this.velocity = Math.random();
     },
