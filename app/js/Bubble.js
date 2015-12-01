@@ -5,6 +5,8 @@
  * {number}options.width 画布的宽度，默认为300
  * {number}options.height 画布的高度，默认为300
  * {number}options.number 泡泡的数量，默认为画布宽度的一半
+ * {string}options.img 在页面上图片的类，用来替换泡泡
+ * {number}options.opacityC 泡泡的透明度系数，原始值为0.3，越大越透明
  */
 function Bubble(options) {
     this.el = typeof options === 'string' ? options : options.el;
@@ -15,7 +17,13 @@ function Bubble(options) {
     this.ctx = this.canvas.getContext('2d');
     this.circles = [];
     for(var i = 0; i < this.number; i++) {
-        this.circles.push(new Circle(this.ctx, this.canvas.width));
+        this.circles.push(new Circle({
+                ctx: this.ctx, 
+                width: this.canvas.width,
+                img: options.img,
+                opacityC: options.opacityC || 0.3
+            })
+        );
     }
     this.animate();
 }
@@ -37,9 +45,11 @@ Bubble.prototype = {
         requestAFrame(this.animate.bind(this));
     }
 };
-function Circle(ctx, width) {
-    this.ctx = ctx;
-    this.width = width;
+function Circle(option) {
+    this.ctx = option.ctx;
+    this.width = option.width;
+    this.img = option.img;
+    this.opacityC = option.opacityC;
     this.init();
 }
 Circle.prototype = {
@@ -47,19 +57,25 @@ Circle.prototype = {
     init: function () {
         this.x = Math.random() * this.width;
         this.y = -Math.random() * 100;
-        this.alpha = 0.1 + Math.random() * 0.3;
+        this.opacity = 1 - Math.random() * opacityC;
         this.scale = 0.1 + Math.random() * 0.3;
         this.velocity = Math.random();
     },
     draw: function() {
-        if (this.alpha <= 0) {
+        if (this.opacity <= 0) {
             this.init();
         }
         this.y += this.velocity;
-        this.alpha -= 0.0005;
+        this.opacity -= 0.0005;
         this.ctx.beginPath();
-        var img = document.querySelector('.snow');
-        this.ctx.drawImage(img, this.x, this.y, this.scale * 30, this.scale * 30);
+        if (this.img) {
+            var img = document.querySelector('.snow');
+            this.ctx.drawImage(img, this.x, this.y, this.scale * 30, this.scale * 30);
+        }
+        else {
+            this.ctx.arc(this.x, this.y, this.scale * 10, 0, 2 * Math.PI, false);
+            this.ctx.fillStyle = 'rgba(255,255,255,'+ this.opacity+')';
+        }
         this.ctx.fill();
     }
 };
