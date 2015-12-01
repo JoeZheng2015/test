@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>界面拖曳交互</title>
+    <style>
+        body {
+            position: relative;
+        }
+        .container {
+            width: 850px;
+            margin: 100px auto;
+        }
+        .box {
+            border: 1px solid black;
+            display: inline-block;
+            width: 202px;
+            height: 600px;
+            margin: 20px 100px;
+        }
+        .block {
+            border: 1px solid black;
+            height: 50px;
+            width: 200px;
+        }
+        #block1 {
+            background-color: red;
+        }
+        #block2 {
+            background-color: black;
+        }
+        #block3 {
+            background-color: blue;
+        }
+        #block4 {
+            background-color: gray;
+        }
+        #block5 {
+            background-color: yellow;
+        }
+    </style>
+    <script src="../../js/spring/task0002_5.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="box box1" id="box1">
+        <div id="block1" class="block" name="block" draggable="true"></div>
+        <div id="block2" class="block" name="block" draggable="true"></div>
+        <div id="block3" class="block" name="block" draggable="true"></div>
+        <div id="block4" class="block" name="block" draggable="true"></div>
+        <div id="block5" class="block" name="block" draggable="true"></div>
+    </div>
+    <div class="box box2" id="box2"></div>
+</div>
+</body>
+</html>
