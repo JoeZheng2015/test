@@ -1,10 +1,8 @@
 
-/* Define the number of leaves to be used in the animation */
+// 定义动画中的落叶数量
 const NUMBER_OF_LEAVES = 20;
 
-/* 
-    Called when the "Falling Leaves" page is completely loaded.
-*/
+// 当页面加载完时调用的初始化函数
 function init()
 {
     /* Get a reference to the element that will contain the leaves */
