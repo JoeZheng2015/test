@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#demo {
+			overflow:auto;
+			height:180px;
+			width:200px;
+			background:#009900;
+			color:#006600;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">  
+		<table  align="top">  
+			<tr>  
+				<td id="demo1" valign="top">
+					<p>000000000001</p>
+					<p>000000000002</p>
+					<p>000000000003</p>
+					<p>000000000004</p>
+					<p>000000000005</p>
+					<p>000000000006</p>
+				</td>  
+			</tr>  
+			<tr>  
+				<td id="demo2" valign="top"></td>  
+			</tr>  
+		</table>  
+	</div>  
+	<script>  
+		var speed = 15;
+		// 什么时候不用document.getElementById可以直接获取DOM元素？
+		demo2.innerHTML = demo1.innerHTML//克隆demo1为demo2
+		// 垂直无缝滚动
+		// 如果是水平的，把所有的 height top 改成 width left
+		function Marquee() {  
+			// offsetHeight是像素高度，包含元素的垂直内边距和边框
+			// 当滚动至demo1与demo2交界时
+			if(demo.scrollTop >= demo2.offsetHeight) {
+				// demo跳到最顶端
+				demo.scrollTop -= demo1.offsetHeight;
+			}
+			else{
+				demo.scrollTop++
+			}
+		}  
+		var MyMar = setInterval(Marquee, speed)//设置定时器  
+		demo.onmouseover = function() {
+			clearInterval(MyMar)
+		};  
+		demo.onmouseout = function() {
+			MyMar=setInterval(Marquee,speed)
+		}; 
+	</script> 
+</body>
+</html>
