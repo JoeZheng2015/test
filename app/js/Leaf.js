@@ -1,6 +1,6 @@
 
 /* Define the number of leaves to be used in the animation */
-const NUMBER_OF_LEAVES = 20;
+const NUMBER_OF_LEAVES = 50;
 
 /* 
     Called when the "Falling Leaves" page is completely loaded.
@@ -71,7 +71,7 @@ function createALeaf()
     /* Randomly choose a leaf image and assign it to the newly created element */
     image.src = '../../files/images/' + randomInteger(1,4) + '.png';
     
-    leafDiv.style.top = "-100px";
+    leafDiv.style.top = "-25px";
 
     /* Position the leaf at a random location along the screen */
     leafDiv.style.left = pixelValue(randomInteger(0, 500));

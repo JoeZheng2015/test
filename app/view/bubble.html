@@ -26,10 +26,25 @@
     <div id="demo">
         <canvas id="bubbleCanvas"></canvas>
     </div>
-    <img src="../../files/images/snow.png" alt="雪花" class="snow">
+    <img src="../../files/images/snow0.png" alt="" class="snow snow0">
+    <img src="../../files/images/snow1.png" alt="" class="snow snow1">
+    <img src="../../files/images/snow2.png" alt="" class="snow snow2">
+    <img src="../../files/images/snow3.png" alt="" class="snow snow3">
+
+    <img src="../../files/images/3.png" alt="" class="snow leaf0">
+    <img src="../../files/images/1.png" alt="" class="snow leaf1">
+    <img src="../../files/images/2.png" alt="" class="snow leaf2">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../js/Bubble.js"></script>
     <script>
-    var bubble = new Bubble('#bubbleCanvas');
+    var bubble = new Bubble({
+        el: '#bubbleCanvas',
+        speed: 1,
+        img: true,
+        imgWidth: 56,
+        imgHeight: 56,
+        number: 2
+    });
     </script>
 </body>
 </html>

@@ -27,7 +27,9 @@ function Bubble(options) {
                 img: options.img,
                 opacityC: options.opacityC || 0.3,
                 scale: options.scale || 0.1,
-                speed: options.speed || 0
+                speed: options.speed || 0,
+                imgWidth: options.imgWidth,
+                imgHeight: options.imgHeight
             })
         );
     }
@@ -60,7 +62,7 @@ Circle.prototype = {
     init: function () {
         this.x = Math.random() * this.option.width;
         this.y = -Math.random() * this.option.height;
-        this.opacity = 1 - Math.random() * this.option.opacityC;
+        this.opacity = 1;
         this.scale =  this.option.scale + Math.random() * 0.5;
         this.speed = this.option.speed + Math.random();
     },
@@ -69,11 +71,16 @@ Circle.prototype = {
             this.init();
         }
         this.y += this.speed;
-        this.opacity -= 0.0005;
+        // this.opacity -= 0.0005;
         this.option.ctx.beginPath();
-        if (this.img) {
-            var img = document.querySelector('.snow');
-            this.option.ctx.drawImage(img, this.x, this.y, this.scale * 30, this.scale * 30);
+        if (this.option.img) {
+            if (!this.img) {
+                var arr = [1, 1, 1, 1, 1, 2, 2, 2, 0, 0];
+                var index = parseInt(Math.random() * 10);
+                var type = arr[index];
+                this.img = document.querySelector('.leaf' + type);
+            }
+            this.option.ctx.drawImage(this.img, this.x, this.y, this.option.imgWidth, this.option.imgHeight);
         }
         else {
             this.option.ctx.arc(this.x, this.y, this.scale * 10, 0, 2 * Math.PI, false);
