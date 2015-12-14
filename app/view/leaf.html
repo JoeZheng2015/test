@@ -13,16 +13,14 @@
 			height: 600px;
 		}
 		
-		#leafContainer 
-		{
+		#leafContainer {
 		    z-index:-1;
 			position: absolute;
 		    width: 100%;
 		    height: 100%;
 		}
 
-		#leafContainer > div 
-		{
+		#leafContainer > div {
 		    position: absolute;
 		    width: 100px;
 		    height: 100px;
@@ -36,48 +34,37 @@
 		     width: 50px;
 		     height: auto;
 
-		     -webkit-animation-iteration-count: infinite;
-		     -webkit-animation-direction: alternate;
-		     -webkit-animation-timing-function: ease-in-out;
-		     -webkit-transform-origin: 50% -100%;
+		    -webkit-animation-iteration-count: infinite;
+		    -webkit-animation-direction: alternate;
+		    -webkit-animation-timing-function: ease-in-out;
+		    -webkit-transform-origin: 50% -100%;
 		}
 
-
-		/* Hides a leaf towards the very end of the animation */
-		@-webkit-keyframes fade
-		{
-		    /* Show a leaf while into or below 95 percent of the animation and hide it, otherwise */
+		/*在动画时间到达95%时，隐藏*/
+		@-webkit-keyframes fade {
 		    0%   { opacity: 1; }
 		    95%  { opacity: 1; }
 		    100% { opacity: 0; }
 		}
 
-
-		/* Makes a leaf fall from -300 to 600 pixels in the y-axis */
-		@-webkit-keyframes drop
-		{
-		    /* Move a leaf to -300 pixels in the y-axis at the start of the animation */
+		/*从-50px开始下落，到650的动画。万一手机长度超过650px，还有渐隐嘛*/
+		@-webkit-keyframes drop {
 		    0%   { -webkit-transform: translate(0px, -50px); }
-		    /* Move a leaf to 600 pixels in the y-axis at the end of the animation */
 		    100% { -webkit-transform: translate(0px, 650px); }
 		}
 
-		/* Rotates a leaf from -50 to 50 degrees in 2D space */
-		@-webkit-keyframes clockwiseSpin
-		{
-		    /* Rotate a leaf by -50 degrees in 2D space at the start of the animation */
+		/*顺时针旋转，从负值到正值*/
+		@-webkit-keyframes clockwiseSpin {
 		    0%   { -webkit-transform: rotate(-50deg); }
-		    /*  Rotate a leaf by 50 degrees in 2D space at the end of the animation */
 		    100% { -webkit-transform: rotate(50deg); }
 		}
 
-
-		/* Flips a leaf and rotates it from 50 to -50 degrees in 2D space */
+		/*逆时针旋转，不过为什么要有个scale呢？*/
 		@-webkit-keyframes counterclockwiseSpinAndFlip 
 		{
-		    /* Flip a leaf and rotate it by 50 degrees in 2D space at the start of the animation */
+		    /*让树叶开始是50deg*/
 		    0%   { -webkit-transform: scale(-1, 1) rotate(50deg); }
-		    /* Flip a leaf and rotate it by -50 degrees in 2D space at the end of the animation */
+		    /*最后是-50deg，完成逆时针的过程*/
 		    100% { -webkit-transform: scale(-1, 1) rotate(-50deg); }
 		}
 	</style>
