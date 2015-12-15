@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bing实现使用动画下雪</title>
+    <style>
+        @-webkit-keyframes snow_falling_fore {
+            0% {
+                top: -100%;
+                opacity: 0
+            }
+
+            1% {
+                top: -100%;
+                opacity: 1
+            }
+
+            99.8% {
+                top: 100%;
+                opacity: 1
+            }
+
+            99.9% {
+                opacity: 0
+            }
+
+            100% {
+                top: -100%;
+                opacity: 0
+            }
+        }
+        @keyframes snow_falling_fore {
+            0% {
+                top: -100%;
+                opacity: 0
+            }
+
+            1% {
+                top: -100%;
+                opacity: 1
+            }
+
+            99.8% {
+                top: 100%;
+                opacity: 1
+            }
+
+            99.9% {
+                opacity: 0
+            }
+
+            100% {
+                top: -100%;
+                opacity: 0
+            }
+        }
+        @-webkit-keyframes snow_falling_mid {
+            0% {
+                top: -100%;
+                opacity: 0
+            }
+
+            1% {
+                top: -100%;
+                opacity: 1
+            }
+
+            99.8% {
+                top: 100%;
+                opacity: 1
+            }
+
+            99.9% {
+                opacity: 0
+            }
+
+            100% {
+                top: -100%;
+                opacity: 0
+            }
+        }
+        @keyframes snow_falling_mid {
+            0% {
+                top: -100%;
+                opacity: 0
+            }
+
+            1% {
+                top: -100%;
+                opacity: 1
+            }
+
+            99.8% {
+                top: 100%;
+                opacity: 1
+            }
+
+            99.9% {
+                opacity: 0
+            }
+
+            100% {
+                top: -100%;
+                opacity: 0
+            }
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .snow_fall {
+            -webkit-transform-origin: 0% 0%;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+            transform-origin: 0% 0%;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .snow {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 600px;
+        }
+        .snow_01 {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+            -webkit-animation-duration: 50s;
+            animation-duration: 50s;
+            height: 100%;
+            -webkit-animation-name: snow_falling_fore;
+            animation-name: snow_falling_fore;
+            top: -100%;
+        }
+        .snow_02 {
+            -webkit-animation-delay: 25s;
+            animation-delay: 25s;
+            -webkit-animation-duration: 50s;
+            animation-duration: 50s;
+            -webkit-animation-name: snow_falling_fore;
+            animation-name: snow_falling_fore;
+            top: -100%;
+            height: 100%;
+        }
+        .snow_03 {
+            -webkit-animation-delay: 0s;
+            -webkit-animation-duration: 70s;
+            animation-delay: 0s;
+            animation-duration: 70s;
+            opacity: .5;
+            -webkit-animation-name: snow_falling_mid;
+            animation-name: snow_falling_mid;
+            top: -100%;
+            height: 100%;
+        }
+        .snow_04 {
+            -webkit-animation-delay: 35s;
+            -webkit-animation-duration: 70s;
+            animation-delay: 35s;
+            animation-duration: 70s;
+            opacity: .5;
+            -webkit-animation-name: snow_falling_mid;
+            animation-name: snow_falling_mid;
+            top: -100%;
+            height: 100%;
+        }
+        .snow_drifter {
+            background-image: 雪图;
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat;
+        }
+        .drift_04 {
+            /*使用同一张图片，但不同的position来做出效果*/
+            background-position: 50% 15%; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="snow snow_fall snow_01">
+            <div class="snow_drifter drift_01"></div>
+        </div>
+        <div class="snow snow_fall snow_02">
+            <div class="snow_drifter drift_02"></div>
+        </div>
+        <div class="snow snow_fall snow_03">
+            <div class="snow_drifter drift_03"></div>
+        </div>
+        <div class="snow snow_fall snow_04">
+            <div class="snow_drifter drift_04"></div>
+        </div>
+    </div>
+</body>
+</html>
