@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>摇一摇功能</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #container {
+            width: 100%;
+            background: black;
+        }
+    </style>
+</head>
+<body> 
+    <div id="container">
+        <canvas class="snow"></canvas>
+    </div>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../js/Bubble.js"></script>
+    <script>
+        var height = document.documentElement.clientHeight;
+        document.getElementById('container').style.height = height + 'px';
+
+        $(function() {
+            var bubble = new Bubble({
+                el: '.snow',
+                scale: 0.5,
+                speed: 4
+            });
+
+            var threshold = 3000,
+                lastUpdate = 0,
+                x = y = z = lastX = lastX = lastZ = 0;
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', handler, false);
+            } 
+            else {
+                
+            }
+            function handler(e) {
+                var accGravity = e.accelerationIncludingGravity,
+                    curTime = new Date().getTime();
+                if ((curTime - lastUpdate) > 100) {
+                    var diffTime = curTime - lastUpdate;
+                    lastUpdate = curTime;
+                    x = accGravity.x;
+                    y = accGravity.y;
+                    z = accGravity.z;
+                    var speed = Math.abs(x + y + z - lastX - lastX - lastZ) / diffTime * 10000;
+                    if (speed > threshold) {
+                        alert('摇动');
+                    }
+                    lastX = x;
+                    lastX = y;
+                    lastZ = z;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
