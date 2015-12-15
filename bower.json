@@ -17,6 +17,7 @@
     "fontawesome": "~4.4.0",
     "jquery": "~2.1.4",
     "requirejs": "~2.1.21",
-    "zepto": "~1.1.6"
+    "zepto": "~1.1.6",
+    "underscore": "~1.8.3"
   }
 }
