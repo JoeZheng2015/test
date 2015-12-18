@@ -38,19 +38,20 @@ function Bubble(options) {
 Bubble.prototype = {
     constructor: Bubble,
     animate: function() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for (var len = this.number; len--;) {
-            this.circles[len].draw();
+        var that = this;
+        that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height);
+        for (var len = that.number; len--;) {
+            that.circles[len].draw();
         }
-        requestAFrame = requestAnimationFrame
-            || webkitRequestAnimationFrame
-            || mozRequestAnimationFrame
-            || oRequestAnimationFrame
-            || msRequestAnimationFrame
+        var requestAFrame = window.requestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.oRequestAnimationFrame
+            || window.msRequestAnimationFrame
             || function (callback) {
                 return setTimeout(callback, 1000 / 60);
             };
-        requestAFrame(this.animate.bind(this));
+        requestAFrame(that.animate.bind(that));
     }
 };
 function Circle(option) {
@@ -60,32 +61,34 @@ function Circle(option) {
 Circle.prototype = {
     constructor: Circle,
     init: function () {
-        this.x = Math.random() * this.option.width;
-        this.y = -Math.random() * this.option.height;
-        this.opacity = 1;
-        this.scale =  this.option.scale + Math.random() * 0.5;
-        this.speed = this.option.speed + Math.random();
+        var that = this;
+        that.x = Math.random() * that.option.width;
+        that.y = -Math.random() * that.option.height;
+        that.opacity = 1;
+        that.scale =  that.option.scale + Math.random() * 0.5;
+        that.speed = that.option.speed + Math.random();
     },
     draw: function() {
-        if (this.opacity <= 0 || this.y >= this.option.height) {
-            this.init();
+        var that = this;
+        if (that.opacity <= 0 || that.y >= that.option.height) {
+            that.init();
         }
-        this.y += this.speed;
-        // this.opacity -= 0.0005;
-        this.option.ctx.beginPath();
-        if (this.option.img) {
-            if (!this.img) {
+        that.y += that.speed;
+        // that.opacity -= 0.0005;
+        that.option.ctx.beginPath();
+        if (that.option.img) {
+            if (!that.img) {
                 var arr = [1, 1, 1, 1, 1, 2, 2, 2, 0, 0];
                 var index = parseInt(Math.random() * 10);
                 var type = arr[index];
-                this.img = document.querySelector('.leaf' + type);
+                that.img = document.querySelector('.leaf' + type);
             }
-            this.option.ctx.drawImage(this.img, this.x, this.y, this.option.imgWidth, this.option.imgHeight);
+            that.option.ctx.drawImage(that.img, that.x, that.y, that.option.imgWidth, that.option.imgHeight);
         }
         else {
-            this.option.ctx.arc(this.x, this.y, this.scale * 10, 0, 2 * Math.PI, false);
-            this.option.ctx.fillStyle = 'rgba(255,255,255,'+ this.opacity+')';
+            that.option.ctx.arc(that.x, that.y, that.scale * 10, 0, 2 * Math.PI, false);
+            that.option.ctx.fillStyle = 'rgba(255,255,255,'+ that.opacity+')';
         }
-        this.option.ctx.fill();
+        that.option.ctx.fill();
     }
 };
