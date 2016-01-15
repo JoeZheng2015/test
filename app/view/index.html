@@ -18,14 +18,25 @@
     </style>
 </head>
 <body> 
-    <div id="container">
-        <div class="box"></div>
-    </div>
+    <ul class="container">
+        <li class="item">天气真好001</li>
+        <li class="item">天气真好002</li>
+        <li class="item">天气真好003</li>
+        <li class="item">天气真好004</li>
+        <li class="item">天气真好005</li>
+        <li class="item">天气真好006</li>
+        <li class="item">天气真好007</li>
+        <li class="item">天气真好008</li>
+        <li class="item">天气真好009</li>
+        <li class="item">天气真好010</li>
+    </ul>
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <script>
         $(function() {
-            $(document).on('click', '.box', function(e) {
-                alert(4);
+            $.each($('.item'), function(index, el) {
+                $(el).on('click', function(e) {
+                    alert(index);
+                })
             })
         }) 
     </script>
