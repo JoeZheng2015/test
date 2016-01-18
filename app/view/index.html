@@ -2,63 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>摇一摇功能</title>
+    <title>尝试测试推送到默认远端的功能</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-        #container {
-            width: 100%;
+        .box {
+            width: 500px;
+            height: 500px;
             background: black;
+            margin: 200px auto 0;
+            cursor: pointer;
         }
     </style>
 </head>
 <body> 
-    <div id="container">
-        <canvas class="snow"></canvas>
-    </div>
+    <ul class="container">
+        <li class="item">天气真好001</li>
+        <li class="item">天气真好002</li>
+        <li class="item">天气真好003</li>
+        <li class="item">天气真好004</li>
+        <li class="item">天气真好005</li>
+        <li class="item">天气真好006</li>
+        <li class="item">天气真好007</li>
+        <li class="item">天气真好008</li>
+        <li class="item">天气真好009</li>
+        <li class="item">天气真好010</li>
+    </ul>
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../js/Bubble.js"></script>
     <script>
-        var height = document.documentElement.clientHeight;
-        document.getElementById('container').style.height = height + 'px';
-
         $(function() {
-            var bubble = new Bubble({
-                el: '.snow',
-                scale: 0.5,
-                speed: 4
-            });
-
-            var threshold = 3000,
-                lastUpdate = 0,
-                x = y = z = lastX = lastX = lastZ = 0;
-            if (window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', handler, false);
-            } 
-            else {
-                
-            }
-            function handler(e) {
-                var accGravity = e.accelerationIncludingGravity,
-                    curTime = new Date().getTime();
-                if ((curTime - lastUpdate) > 100) {
-                    var diffTime = curTime - lastUpdate;
-                    lastUpdate = curTime;
-                    x = accGravity.x;
-                    y = accGravity.y;
-                    z = accGravity.z;
-                    var speed = Math.abs(x + y + z - lastX - lastX - lastZ) / diffTime * 10000;
-                    if (speed > threshold) {
-                        alert('摇动');
-                    }
-                    lastX = x;
-                    lastX = y;
-                    lastZ = z;
-                }
-            }
-        });
+            $.each($('.item'), function(index, el) {
+                $(el).on('click', function(e) {
+                    alert(index);
+                })
+            })
+        }) 
     </script>
 </body>
 </html>
