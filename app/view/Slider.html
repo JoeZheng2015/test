@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+<meta name="apple-touch-fullscreen" content="YES" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background: #333;
+		overflow: hidden;
+	}
+	li,ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		overflow: hidden;
+	}
+	/* 使得图片居中 webkit-box */
+	li{
+		width: 100%;
+		position: absolute;
+		display: -webkit-box;
+		-webkit-box-pack: center;
+		-webkit-box-align: center;
+	}
+	li img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	/* 隐藏画布外的内容 */
+	#canvas{
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+</style>
+</head>
+<body>
+	<!-- 外层画布 -->
+	<div id="canvas"></div>
+	<script src="../js/Slider.js"></script>
+	<script>
+		//所有的数据
+		var list = [{
+			height: 950,
+			width: 800,
+			img: "imgs/1.jpg"
+		},
+		{
+			height: 1187,
+			width: 900,
+			img: "imgs/2.jpg"
+		},
+		{
+			height: 766,
+			width: 980,
+			img: "imgs/3.jpg"
+		},
+		{
+			height: 754,
+			width: 980,
+			img: "imgs/4.jpg"
+		},
+		{
+			height: 493,
+			img: "imgs/5.jpg",
+			width: 750
+		},
+		{
+			height: 500,
+			img: "imgs/6.jpg",
+			width: 750
+		},
+		{	
+			height: 600,
+			img: "imgs/7.jpg",
+			width: 400
+		}];
+
+		var data = [{
+			height: 950,
+			width: 800,
+			img: "../../files/images/Slider/1.jpg"
+		},
+		{
+			height: 1187,
+			width: 900,
+			img: "../../files/images/Slider/2.jpg"
+		},
+		{
+			height: 766,
+			width: 980,
+			img: "../../files/images/Slider/3.jpg"
+		},
+		{
+			height: 754,
+			width: 980,
+			img: "../../files/images/Slider/4.jpg"
+		},
+		{
+			height: 493,
+			img: "../../files/images/Slider/5.jpg",
+			width: 750
+		},
+		{
+			height: 500,
+			img: "../../files/images/Slider/6.jpg",
+			width: 750
+		},
+		{	
+			height: 600,
+			img: "../../files/images/Slider/7.jpg",
+			width: 400
+		}];
+		var slider = new Slider({
+			el: document.getElementById('canvas'),
+			list: data
+		});
+	</script>
+</body>
