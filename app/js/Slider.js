@@ -1,6 +1,16 @@
 (function(exports) {
 	exports.Slider = Slider;
 
+	/**
+	 * 幻灯片的构造函数，需要2个必须参数和1个可选参数
+	 * @param {Object} options 参数对象
+	 * {Object} options.el 【必须】要挂在幻灯片的Dom对象
+	 * {Array} options.list 【必须】图片对象组成数组
+	 * 		{number} height 规定图片的高度，方便在图片过大时，正确的压缩方向
+	 * 		{number} width 规定图片的宽度，方便在图片过大时，正确的压缩方向
+	 * 		{string} img 图片的路径
+	 * {number} options.index 【可选】指定初始化时，幻灯片的位置
+	 */
 	function Slider(options) {
 		this.el = options.el;
 		this.list = options.list;
@@ -35,11 +45,16 @@
 				// 实现可定义初始化指定的图片作为起点
 				li.style.cssText = 'transform: translate3d(' + (i - index) * innerWidth + 'px, 0,0);';
 
-				if (list[i].width / list[i].height > ratio) {
-					li.innerHTML = '<img src="' + list[i]['img']+'" style="width: ' + innerWidth + 'px">';
+				if (list[i].width && list[i].height) {
+					if (list[i].width / list[i].height > ratio) {
+						li.innerHTML = '<img src="' + list[i]['img']+'" style="width: ' + innerWidth + 'px">';
+					}
+					else {
+						li.innerHTML = '<img src="' + list[i]['img']+'" style="height: ' + innerHeight + 'px">';
+					}
 				}
 				else {
-					li.innerHTML = '<img src="' + list[i]['img']+'" style="height: ' + innerHeight + 'px">';
+					li.innerHTML = '<img src="' + list[i]['img']+'">';
 				}
 				docFrc.appendChild(li);
 			}
