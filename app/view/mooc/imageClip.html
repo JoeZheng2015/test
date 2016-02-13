@@ -22,8 +22,14 @@
 		    position: absolute;
 		    top: 100px;
 		    left: 600px;
-		    width: 460px;
-		    height: 360px;
+		    width: 200px;
+		    height: 200px;
+		    overflow: hidden;
+		}
+		.img3 {
+			position: absolute;
+			top: 0px;
+			left: 0px;
 		}
 		.img1 {
 			opacity: .5;
@@ -31,8 +37,7 @@
 			left: 0;
 			top: 0;
 		}
-		.img2, 
-		.img3 {
+		.img2 {
 			position: absolute;
 			left: 0;
 			top: 0;
@@ -102,8 +107,8 @@
 </head>
 <body>
 	<div class="container">
-		<img class="img1" src="../../../files/images/mooc/1.jpg" alt="Í¼Æ¬">
-		<img class="img2" src="../../../files/images/mooc/1.jpg" alt="Í¼Æ¬">
+		<img class="img1" src="../../../files/images/mooc/1.jpg" alt="">
+		<img class="img2" src="../../../files/images/mooc/1.jpg" alt="">
 		<div class="box">
 			<span class="spot lt"></span>
 			<span class="spot up"></span>
@@ -116,7 +121,7 @@
 		</div>
 	</div>
 	<div id="preview">
-		<img class="img3" src="../../../files/images/mooc/1.jpg" alt="Í¼Æ¬">
+		<img class="img3" src="../../../files/images/mooc/1.jpg" alt="">
 	</div>
 	<script src="../../../bower_components/jquery/dist/jquery.js"></script>
 	<script>
@@ -304,10 +309,13 @@
 				$('.img2').css({
 					clip: 'rect(' + up + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px)'
 				})
+				$('#preview').css({
+					width: right - left + 'px',
+					height: bottom - up + 'px'
+				})
 				$('.img3').css({
 					top: -up + 'px',
-					left: -left + 'px',
-					clip: 'rect(' + up + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px)'
+					left: -left + 'px'
 				})
 			}
 		})
