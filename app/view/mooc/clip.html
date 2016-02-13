@@ -193,14 +193,16 @@
 						break;
 					case 'right':
 						offsetX = e.pageX - startX;
+						startX = e.pageX; 
 						$el.css({
-							width: width + offsetX + 'px',
+							width: $el.width() + offsetX + 'px',
 						})
 						break;
 					case 'down':
 						offsetY = e.pageY - startY;
+						startY = e.pageY;
 						$el.css({
-							height: height + offsetY + 'px',
+							height: $el.height() + offsetY + 'px',
 						})
 						break;
 					case 'left':
@@ -239,9 +241,12 @@
 					case 'rb':
 						offsetX = e.pageX - startX;
 						offsetY = e.pageY - startY;
+						startX = e.pageX;
+						startY = e.pageY;
+
 						$el.css({
-							height: height + offsetY + 'px',
-							width: width + offsetX + 'px'
+							height: $el.height() + offsetY + 'px',
+							width: $el.width() + offsetX + 'px'
 						})
 						break;
 					case 'lb':
