@@ -2,43 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>尝试测试推送到默认远端的功能</title>
+    <title>学习svg</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-        .box {
-            width: 500px;
-            height: 500px;
-            background: black;
-            margin: 200px auto 0;
-            cursor: pointer;
+        div {
+            width: 50px;
+            height: 50px;
+        }
+        .box1 {
+            border: 1px solid black;
+        }
+        .box2 {
+            -webkit-box-shadow:0 1px 1px -1px rgba(0, 0, 0, 0.5);
+            box-shadow:0 1px 1px -1px rgba(0, 0, 0, 0.5);
+        }
         }
     </style>
 </head>
-<body> 
-    <ul class="container">
-        <li class="item">天气真好001</li>
-        <li class="item">天气真好002</li>
-        <li class="item">天气真好003</li>
-        <li class="item">天气真好004</li>
-        <li class="item">天气真好005</li>
-        <li class="item">天气真好006</li>
-        <li class="item">天气真好007</li>
-        <li class="item">天气真好008</li>
-        <li class="item">天气真好009</li>
-        <li class="item">天气真好010</li>
-    </ul>
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
     <script>
-        $(function() {
-            $.each($('.item'), function(index, el) {
-                $(el).on('click', function(e) {
-                    alert(index);
-                })
-            })
-        }) 
+    function luckCheck(ticket){
+        return !ticket.split('').reduce(function(p, c, i) {
+            var half = ticket.length / 2;
+            c = i < half ? parseInt(c) : -parseInt(c);
+            p = parseInt(p);
+            if (c !== c || p !== p) {
+                throw 'error';
+            }
+            return p + c;
+        })
+    }
+    console.log(luckCheck('6F43E8'))
     </script>
 </body>
 </html>

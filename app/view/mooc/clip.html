@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>剪切图片</title>
+	<style>
+		body {
+			background-color: #333;
+			-webkit-user-select: none;
+			-moz-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+		}
+		.container {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width:460px;
+			height:360px;
+		}
+		.img1 {
+			opacity: .5;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.img2{
+			position: absolute;
+			left: 0;
+			top: 0;
+			clip: rect(0px 202px 202px 0px);
+		}
+		.box {
+			height: 200px;
+			width: 200px;
+			border: 1px solid #fff;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			cursor: move;
+		}
+		.spot {
+			display: block;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.spot:nth-child(1) {
+			cursor: nwse-resize;
+			transform: translate(-50%, -50%);
+		}
+		.spot:nth-child(2) {
+			cursor: ns-resize;
+			left: 50%;
+			transform: translate(0, -50%);
+		}
+		.spot:nth-child(3) {
+			cursor: nesw-resize;
+			left: 100%;
+			transform: translate(-50%, -50%);
+		}
+		.spot:nth-child(4) {
+			cursor: ew-resize;
+			top: 50%;
+			left: 100%;
+			transform: translate(-50%, -50%);
+		}
+		.spot:nth-child(5) {
+			cursor: nwse-resize;
+			top: 100%;
+			left: 100%;
+			transform: translate(-50%, -50%);
+		}
+		.spot:nth-child(6) {
+			cursor: ns-resize;
+			top: 100%;
+			left: 50%;
+			transform: translate(0, -50%);
+		}
+		.spot:nth-child(7) {
+			cursor: nesw-resize;
+			top: 100%;
+			transform: translate(-50%, -50%);
+		}
+		.spot:nth-child(8) {
+			cursor: ew-resize;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img class="img1" src="../../../files/images/mooc/1.jpg" alt="图片">
+		<img class="img2" src="../../../files/images/mooc/1.jpg" alt="图片">
+		<div class="box">
+			<span class="spot lt"></span>
+			<span class="spot up"></span>
+			<span class="spot rt"></span>
+			<span class="spot right"></span>
+			<span class="spot rb"></span>
+			<span class="spot down"></span>
+			<span class="spot lb"></span>
+			<span class="spot left"></span>
+		</div>
+	</div>
+	<script src="../../../bower_components/jquery/dist/jquery.js"></script>
+	<script>
+		var $el = $('.box');
+		var startX, startY, offsetX, offsetY,
+			dir = '',
+			width = 0,
+			height = 0,
+			up = 0,
+			left = 0,
+			right = 0,
+			bottom = 0;
+
+		$el.on('mousedown', function(e) {
+			console.log('drag')
+			dir = 'drag';
+			startX = e.pageX;
+			startY = e.pageY;
+			up = $el.position().top;
+			left = $el.position().left;
+		})
+
+		$('.up').on('mousedown', function(e) {
+			e.stopPropagation();
+			startY = e.pageY;
+			dir = 'up';
+			up = $('.box').position().top;
+		});
+		$('.right').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			dir = 'right';
+		});
+		$('.down').on('mousedown', function(e) {
+			e.stopPropagation();
+			startY = e.pageY;
+			dir = 'down';
+		});
+		$('.left').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			dir = 'left';
+			left = $('.box').position().left;
+		});
+
+		$('.lt').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			startY = e.pageY;
+			dir = 'lt';
+			left = $('.box').position().left;
+			up = $('.box').position().top;
+		})
+		$('.rt').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			startY = e.pageY;
+			dir = 'rt';
+			up = $('.box').position().top;
+		})
+		$('.rb').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			startY = e.pageY;
+			dir = 'rb';
+		})
+		$('.lb').on('mousedown', function(e) {
+			e.stopPropagation();
+			startX = e.pageX;
+			startY = e.pageY;
+			dir = 'lb';
+			left = $('.box').position().left;
+		})
+		$(window).on('mousemove', function(e) {
+			if (dir) {
+				console.log(dir)
+				switch (dir) {
+					case 'up':
+						offsetY = e.pageY - startY;
+						startY = e.pageY;
+						$el.css({
+							height: $el.height() - offsetY + 'px',
+							top: up + offsetY + 'px'
+						})
+						break;
+					case 'right':
+						offsetX = e.pageX - startX;
+						$el.css({
+							width: width + offsetX + 'px',
+						})
+						break;
+					case 'down':
+						offsetY = e.pageY - startY;
+						$el.css({
+							height: height + offsetY + 'px',
+						})
+						break;
+					case 'left':
+						offsetX = e.pageX - startX;
+						startX = e.pageX;
+						$el.css({
+							width: $el.width() - offsetX + 'px',
+							left: left + offsetX + 'px'
+						})
+						break;
+					case 'lt':
+						offsetX = e.pageX - startX;
+						offsetY = e.pageY - startY;
+						startX = e.pageX;
+						startY = e.pageY;
+
+						$el.css({
+							height: $el.height() - offsetY + 'px',
+							top: up + offsetY + 'px',
+							width: $el.width() - offsetX + 'px',
+							left: left + offsetX + 'px'
+						})
+						break;
+					case 'rt':
+						offsetX = e.pageX - startX;
+						offsetY = e.pageY - startY;
+						startX = e.pageX;
+						startY = e.pageY;
+
+						$el.css({
+							height: $el.height() - offsetY + 'px',
+							top: up + offsetY + 'px',
+							width: $el.width() + offsetX + 'px'
+						})
+						break;
+					case 'rb':
+						offsetX = e.pageX - startX;
+						offsetY = e.pageY - startY;
+						$el.css({
+							height: height + offsetY + 'px',
+							width: width + offsetX + 'px'
+						})
+						break;
+					case 'lb':
+						offsetX = e.pageX - startX;
+						offsetY = e.pageY - startY;
+						startX = e.pageX;
+						startY = e.pageY;
+
+						$el.css({
+							height: $el.height() + offsetY + 'px',
+							width: $el.width() - offsetX + 'px',
+							left: left + offsetX + 'px'
+						})
+						break;
+					case 'drag':
+						offsetX = e.pageX - startX;
+						offsetY = e.pageY - startY;
+						startX = e.pageX;
+						startY = e.pageY;
+
+						$el.css({
+							top: up + offsetY + 'px',
+							left: left + offsetX + 'px'
+						})
+						break;
+				}
+				up = $el.position().top;
+				left = $el.position().left;
+				right = left + $el.width();
+				bottom = up + $el.height();
+				$('.img2').css({
+					clip: 'rect(' + up + 'px ' + right + 'px ' + bottom + 'px ' + left + 'px)'
+				})
+			}
+		})
+		$(window).on('mouseup', function(e) {
+			dir = '';
+		})
+	</script>
+</body>
+</html>
