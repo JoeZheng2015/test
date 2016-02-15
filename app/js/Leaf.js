@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
 // 定义动画中的落叶数量
 const NUMBER_OF_LEAVES = 40;
-=======
-/* Define the number of leaves to be used in the animation */
-const NUMBER_OF_LEAVES = 50;
->>>>>>> e6cd2c3f965d66e7770d6b0565ae715af2bd57e3
 
 // 初始化函数
 function init() {
@@ -45,14 +40,8 @@ function createALeaf() {
     // 随机选择不同的图片作为树叶
     image.src = '../../files/images/' + randomInteger(1,4) + '.png';
     
-<<<<<<< HEAD
     // 定义div的位置、top固定，left随机
     leafDiv.style.top = "-100px";
-=======
-    leafDiv.style.top = "-25px";
-
-    /* Position the leaf at a random location along the screen */
->>>>>>> e6cd2c3f965d66e7770d6b0565ae715af2bd57e3
     leafDiv.style.left = pixelValue(randomInteger(0, 500));
     
     // 随机选择旋转方向
