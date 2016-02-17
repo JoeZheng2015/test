@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉刷新</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html,
+		body,
+		.container {
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+		}
+		.box {
+			margin-top: 50px;
+			height: 40%;
+			width: 100%;
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box"></div>
+	</div>
+	<script src="../../bower_components/jquery/dist/jquery.js"></script>
+	<script>
+		$(function() {
+			var startY;
+			var $el = $('.box');
+
+			$el.on('touchstart', function(e) {
+				e = e.changedTouches ? e.changedTouches[0] : e;
+				startY = e.pageY;
+			})
+			$el.on('touchmove', function(e) {
+				var e = e.changedTouches ? e.changedTouches[0] : e;
+                var offsetY = e.pageY - startY;
+
+                if (offsetY >= 0 && $(window).scrollTop() === 0) {
+                    var dampen = offsetY > 0 ? 2 : 4;
+
+                    $el.css({
+                        transform: 'translateY(' + offsetY / dampen + 'px)'
+                    });
+                }
+			})
+			$el.on('touchend', function(e) {
+				var e = e.changedTouches ? e.changedTouches[0] : e;
+				var offsetY = e.pageY - startY;
+                    if (offsetY >= 0) {
+
+                        $el.animate({
+                            transform: 'translateY(0px)'
+                        }, 200, 'swing', function() {
+                            $.get('test')
+                        });
+                    }
+			})
+		})
+	</script>
+</body>
+</html>
