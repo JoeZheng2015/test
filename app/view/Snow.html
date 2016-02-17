@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <canvas id="snow"></canvas>
+    </div>
+    <img src="../../files/images/snow/0.png" alt="" class="snow snow0">
+    <img src="../../files/images/snow/1.png" alt="" class="snow snow1">
+    <img src="../../files/images/snow/2.png" alt="" class="snow snow2">
+    <img src="../../files/images/snow/3.png" alt="" class="snow snow3">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../js/Snow.js"></script>
+    <script>
+    $(function() {
+        var bubble = new Bubble({
+            el: '#snow',
+            speed: 2,
+            img: true,
+            imgWidth: 46,
+            imgHeight: 46,
+            number: 100
+        });
+    })
+    </script>
+</body>
+</html>
