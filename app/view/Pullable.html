@@ -20,46 +20,54 @@
 			height: 40%;
 			width: 100%;
 			background-color: #fff;
+			position: relative;
 		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="box"></div>
+		<div class="box" id="box"></div>
 	</div>
 	<script src="../../bower_components/jquery/dist/jquery.js"></script>
 	<script>
 		$(function() {
 			var startY;
 			var $el = $('.box');
-
-			$el.on('touchstart', function(e) {
+			var box = document.getElementById('box')
+			box.addEventListener('touchstart', function(e) {
+				e.preventDefault();
+				console.log('---------start-------------')
 				e = e.changedTouches ? e.changedTouches[0] : e;
 				startY = e.pageY;
-			})
-			$el.on('touchmove', function(e) {
-				var e = e.changedTouches ? e.changedTouches[0] : e;
-                var offsetY = e.pageY - startY;
 
+			})
+			box.addEventListener('touchmove', function(e) {
+				e.preventDefault();
+				e = e.changedTouches ? e.changedTouches[0] : e;
+                var offsetY = e.pageY - startY;
                 if (offsetY >= 0 && $(window).scrollTop() === 0) {
                     var dampen = offsetY > 0 ? 2 : 4;
-
+	                console.log(offsetY)
                     $el.css({
-                        transform: 'translateY(' + offsetY / dampen + 'px)'
+                        top: offsetY / dampen + 'px'
                     });
                 }
 			})
-			$el.on('touchend', function(e) {
-				var e = e.changedTouches ? e.changedTouches[0] : e;
+			box.addEventListener('touchend', function(e) {
+				e.preventDefault();
+				console.log('--------end--------')
+				e = e.changedTouches ? e.changedTouches[0] : e;
 				var offsetY = e.pageY - startY;
-                    if (offsetY >= 0) {
-
-                        $el.animate({
-                            transform: 'translateY(0px)'
-                        }, 200, 'swing', function() {
-                            $.get('test')
-                        });
-                    }
+                if (offsetY >= 0) {
+                    $el.animate({
+                        top: '0px'
+                    }, 200, 'linear', function() {
+                        console.log(1)
+                    });
+                }
+			})
+			box.addEventListener('touchcancel', function(e) {
+				console.log('-------cancel---------')
 			})
 		})
 	</script>
