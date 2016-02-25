@@ -1,69 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>学习svg</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        div {
-            width: 50px;
-            height: 50px;
-        }
-        .box1 {
-            border: 1px solid black;
-        }
-        .box2 {
-            -webkit-box-shadow:0 1px 1px -1px rgba(0, 0, 0, 0.5);
-            box-shadow:0 1px 1px -1px rgba(0, 0, 0, 0.5);
-        }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>Document</title>
 </head>
 <body>
-    <div class="box1"></div>
-    <div class="box2"></div>
-    <script>
-       var scroll = document.querySelector('.scroll');
-       var outerScroller = document.querySelector('.outerScroller');
-       var touchStart = 0;
-       var touchDis = 0;
-       outerScroller.addEventListener('touchstart', function(event) { 
-            var touch = event.targetTouches[0]; 
-            // 把元素放在手指所在的位置 
-               touchStart = touch.pageY; 
-               console.log(touchStart);
-            }, false);
-       outerScroller.addEventListener('touchmove', function(event) { 
-            var touch = event.targetTouches[0]; 
-            console.log(touch.pageY + 'px');  
-            scroll.style.top = scroll.offsetTop + touch.pageY-touchStart + 'px';
-            console.log(scroll.style.top);
-            touchStart = touch.pageY;
-            touchDis = touch.pageY-touchStart;
-            }, false);
-       outerScroller.addEventListener('touchend', function(event) { 
-            touchStart = 0;
-            var top = scroll.offsetTop;
-            console.log(top);
-            if(top>70)refresh();
-            if(top>0){
-                var time = setInterval(function(){
-                  scroll.style.top = scroll.offsetTop -2+'px';
-                  if(scroll.offsetTop<=0)clearInterval(time);
-                },1)
-            }
-        }, false);
-       function refresh(){
-        for(var i = 10;i>0;i--)
-            {
-                var node = document.createElement("li");
-                node.innerHTML = "I'm new";
-                scroll.insertBefore(node,scroll.firstChild);
-            }
-       }
-    </script>
+	<ul>
+		<li>item</li>
+		<li>item</li>
+		<li>item</li>
+		<li>item</li>
+	</ul>
+	<script>
+		
+	</script>
 </body>
 </html>
