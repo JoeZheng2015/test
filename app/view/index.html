@@ -12,7 +12,28 @@
 		<li>item</li>
 	</ul>
 	<script>
-		
+		var prefixer = function() {
+			var el = document.createElement('fullpage');
+			var type;
+			var transformType = {
+				'-webkit-transform': '-webkit-',
+				'-moz-transform'   : '-moz-',
+				'-o-transform'     : '-o-'
+			}
+			for (var name in transformType) {
+				if (el.style[name] !== undefined) {
+					type = transformType[name];
+				}
+			}
+			return function(option) {
+				var p = new RegExp(option.value.join('|'), 'g');
+				return option.css.replace(p, type + '$&');
+			}
+		}()
+		console.log(prefixer({
+			css: 'transform: translate(0, 0)',
+			value: ['transform']
+		}))
 	</script>
 </body>
 </html>

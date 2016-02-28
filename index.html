@@ -1,111 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="./app/css/normalize.css">
+    <link rel="stylesheet" href="./fonts/icons.css">
     <link rel="stylesheet" href="./index.css">
     <meta charset="UTF-8">
-    <title>demo列表</title>
+    <title>Demos</title>
 </head>
 <body>
     <div class="main">
-        <ul class="main-lists">
-            <li>
-                <h2>组件</h2>
-                <h3>学习js</h3>
-                <ul class="demo-lists">
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/Snow.html">使用Canvas完成下雪的效果</a>
-                        <p>学习Canvas和面向相对的编写js代码</p>
+        <ul>
+            <li class="main-list">
+                <h1 class="header">
+                    <i class="icon icon-mark"></i>
+                    Demos. 仓库列表
+                </h1>
+                <h3 class="stage">
+                    个人项目
+                </h3>
+                <ul class="items">
+                    <li class="item">
+                        <h4 class="item-name">
+                            icon-font生成插件
+                            <a class="link" href="https://github.com/JoeZheng2015/iconfont" target="_blank">
+                                <i class="icon icon-link"></i>
+                                仓库
+                            </a>
+                        </h4>
+                        <p class="item-info">
+                            使用gulp插件，根据svg生成对应的字体图标。
+                        </p>
+                        <img src="./files/images/iconfont.jpg" alt="图片" class="pc-img">
                     </li>
-                     <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/Slider.html">移动端图片的幻灯片切换组件</a>
-                        <p>学习移动端的触摸事件</p>
+                    <li class="item">
+                        <h4 class="item-name">
+                            Canvas雪花特效
+                            <a href="https://github.com/JoeZheng2015/workspace/blob/gh-pages/app/js/Snow.js" class="link" target="_blank">
+                                <i class="icon icon-link"></i>
+                                源码
+                            </a>
+                            <a href="http://joezheng2015.github.io/workspace/app/view/Snow.html" class="link" target="_blank">
+                                <i class="icon icon-link"></i>
+                                demo
+                            </a>
+                        </h4>
+                        <p class="item-info">
+                            利用Canvas画出简单的雪花特效，并使用模块化的思想组织js代码。在低端移动设备上也能有很好的动画效果
+                        </p>
+                        <img src="./files/images/snow.jpg" alt="图片" class="pc-img">
                     </li>
-                </ul>
-            </li>
-            <li>
-                <h2>其他</h2>
-                <h3>兴趣学的</h3>
-                <ul class="demo-lists">
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/animate_rotate.html">翻片效果</a>
-                        <p>学习transform-style和perspective属性</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/book.html">书本的翻页动画</a>
-                        <p>学习3d效果</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/wheel.html">CSS3画出轮子</a>
-                        <p>学习CSS3的动画、transform-origin和transform的应用</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/rotate.html">用各种方法实现旋转</a>
-                        <p>使用CSS3来实现旋转</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/snow_animation.html">用css动画实现下雪</a>
-                        <p>学习利用background-position把1张图片营造出多张图片的效果，和利用css实现下雪</p>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h2>百度学院</h2>
-                <h3>百度暑假班</h3>
-                <ul class="demo-lists">
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/spring/task0002_5.html">拖曳交互</a>
-                        <p>使用HTML5实现拖曳特性</p>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h2>百度学院</h2>
-                <h3>百度寒假班</h3>
-                <ul class="demo-lists">
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/summer/warmUp.html">热身任务</a>
-                        <p>模仿北邮首页</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/summer/task1.html">任务一</a>
-                        <p>简单的移动名片</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/summer/task2.html">任务二</a>
-                        <p>移动端的简历</p>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h2>慕课网</h2>
-                <h3>慕课</h3>
-                <ul class="demo-lists">
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/mooc/waterfall/JavaScript/index.html">瀑布流</a>
-                        <p>使用JavaScript实现瀑布流</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/mooc/waterfall/jQuery/index.html">慕课网的瀑布流</a>
-                        <p>使用jQuery实现瀑布流</p>
-                    </li>
-                    <li>
-                        <span class="circle"></span>
-                        <a class="title" href="./app/view/mooc/imageClip.html">实现剪切区域预览</a>
-                        <p>学习css的clip和事件对象的pageX等作用</p>
+                    <li class="item">
+                        <h4 class="item-name">
+                            移动端简历
+                            <a href="http://joezheng2015.github.io/workspace/app/view/summer/task2.html" class="link" target="_blank">
+                                <i class="icon icon-link"></i>
+                                demo
+                            </a>
+                        </h4>
+                        <p class="item-info">
+                            学习在移动端的touch系列事件，和动画效果
+                        </p>
+                        <img class="mobile-img" src="./files/images/mobile_resume.jpg" alt="demo图">
                     </li>
                 </ul>
             </li>
