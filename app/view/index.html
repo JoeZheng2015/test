@@ -5,35 +5,21 @@
 	<title>Document</title>
 </head>
 <body>
-	<ul>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
+	<div class="container"></div>
+	<script type="template" id="template">
+		<h1><% ''greet %></h1>
+		<div><%name%></div>	
+	</script>
+	<script src="../../bower_components/jquery/dist/jquery.js"></script>
+	<script src="../js/template.js"></script>
 	<script>
-		var prefixer = function() {
-			var el = document.createElement('fullpage');
-			var type;
-			var transformType = {
-				'-webkit-transform': '-webkit-',
-				'-moz-transform'   : '-moz-',
-				'-o-transform'     : '-o-'
-			}
-			for (var name in transformType) {
-				if (el.style[name] !== undefined) {
-					type = transformType[name];
-				}
-			}
-			return function(option) {
-				var p = new RegExp(option.value.join('|'), 'g');
-				return option.css.replace(p, type + '$&');
-			}
-		}()
-		console.log(prefixer({
-			css: 'transform: translate(0, 0)',
-			value: ['transform']
-		}))
+		var ob = {
+			greet: 'goodbye',
+			name: 'joe'
+		}
+		var html = $('#template').html();
+		var str = template(html)(ob);
+		$('.container').append(str);
 	</script>
 </body>
 </html>
