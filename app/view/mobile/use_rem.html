@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>只使用rem</title>
+    <!-- 只使用rem,同一CSS样式，在不同设备宽度、不同设备像素比下都是占1/4 -->
+    <script>
+        var width = window.document.documentElement.getBoundingClientRect().width;
+        window.document.documentElement.style.fontSize = width / 10 + 'px';
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            box-sizing: border-box;
+            border: 1px solid red;
+            width: 10rem;
+            margin: 0 auto;
+        }
+        .box {
+            height: 1rem;
+            width: 2.5rem;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

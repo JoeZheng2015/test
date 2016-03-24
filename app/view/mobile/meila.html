@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>美啦的适配方案</title>
+    <script>
+        ! function (J) {
+            function H() {
+                var d = E.getBoundingClientRect().width;
+                var e = (d / 6.4 > 100 * B ? 100 * B : (d / 6.4 < 50 ? 50 : d / 6.4));
+                E.style.fontSize = e + "px", J.rem = e
+            }
+            var G, F = J.document,
+                E = F.documentElement,
+                D = F.querySelector('meta[name="viewport"]'),
+                B = 0,
+                A = 0;
+            if (D) {
+                var y = D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                y && (A = parseFloat(y[1]), B = parseInt(1 / A))
+            }
+            if (!B && !A) {
+                var u = (J.navigator.appVersion.match(/android/gi), J.navigator.appVersion.match(/iphone/gi)),
+                    t = J.devicePixelRatio;
+                B = u ? t >= 3 && (!B || B >= 3) ? 3 : t >= 2 && (!B || B >= 2) ? 2 : 1 : 1, A = 1 / B
+            }
+            if (E.setAttribute("data-dpr", B), !D) {
+                if (D = F.createElement("meta"), D.setAttribute("name", "viewport"), D.setAttribute("content", "initial-scale=" +
+                    A + ", maximum-scale=" + A + ", minimum-scale=" + A + ", user-scalable=no"), E.firstElementChild) {
+                    E.firstElementChild.appendChild(D)
+                } else {
+                    var s = F.createElement("div");
+                    s.appendChild(D), F.write(s.innerHTML)
+                }
+            }
+            J.addEventListener("resize", function () {
+                clearTimeout(G), G = setTimeout(H, 300)
+            }, !1);
+            J.addEventListener("pageshow", function (b) {
+                b.persisted && (clearTimeout(G), G = setTimeout(H, 300))
+            }, !1), H()
+        }(window);
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            box-sizing: border-box;
+            border: 1px solid red;
+            width: 100%;
+            max-width: 6.4rem;
+            margin: 0 auto;
+        }
+        .box {
+            height: 1rem;
+            width: 1.6rem;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div> 
+    </div>
+    <script>
+        console.log(window.document.documentElement.getBoundingClientRect().width)
+    </script>
+</body>
+</html>

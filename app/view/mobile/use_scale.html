@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>只使用initial-scale</title>
+    <!-- 不影响rem，但使得px单位在不同设备像素比下，与物理像素一致！ -->
+    <script>
+        var dpr = window.devicePixelRatio;
+        var scale = 1 / dpr;
+        var meta = window.document.createElement('meta');
+        meta.setAttribute('name', 'viewport');
+        meta.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+        window.document.documentElement.firstElementChild.appendChild(meta);
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .hr1 {
+            width: 100%;
+            height: 1px;
+            margin-top: 100px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="hr1"></div>
+</body>
+</html>
