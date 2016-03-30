@@ -6,8 +6,8 @@
 	 * @param {Object} options 参数对象
 	 * {Object} options.el 【必须】要挂载幻灯片的Dom对象
 	 * {Array} options.list 【必须】图片对象组成数组
-	 * 		{number} height 规定图片的高度，方便在图片过大时，正确的压缩方向
-	 * 		{number} width 规定图片的宽度，方便在图片过大时，正确的压缩方向
+	 * 		{number} height 【可选】规定图片的高度，方便在图片过大时，正确的压缩方向
+	 * 		{number} width 【可选】规定图片的宽度，方便在图片过大时，正确的压缩方向
 	 * 		{string} img 图片的路径
 	 * {number} options.index 【可选】指定初始化时，幻灯片的位置
 	 */
