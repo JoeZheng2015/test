@@ -3,37 +3,94 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		/*让图片父元素宽高与图片等比例*/
+		.i1 {
+			padding-bottom: 66.75%;
+		}
+		.i2 {
+			padding-bottom: 66.75%;
+		}
+		.i3 {
+			padding-bottom: 66.65%;
+		}
+		.i4 {
+			padding-bottom: 75%;
+		}
+		.i5	{
+			padding-bottom: 133.33%;
+		}
+
+		/*让图片父元素们等比例的占据多余的空间*/
+		.box1 {
+			flex-grow: 149.81273408239701;
+			width: 359.55056179775283px;
+		}
+		.box2 {
+			flex-grow: 149.81273408239701;
+			width: 359.55056179775283px;
+		}
+		.box3 {
+			flex-grow: 150.03750937734435;
+			width: 360.0900225056264px;
+		}
+		.box4 {
+			flex-grow: 133.33333333333334;
+			width: 320px;
+		}
+		.box5 {
+			flex-grow: 75;
+			width: 180px;
+		}
+
+		/*解决最后一行，会出现一张图片占据整行的问题*/
+		.container:after {
+			content: '';
+			flex-grow: 99999999999999;
+		}
+
+		/*下面是平平无奇的代码*/
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		div {
+			margin: 2px;
+			position: relative;
+		}
+		img {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+	</style>
 </head>
 <body>
-	<ul>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-		<li>item</li>
-	</ul>
-	<script>
-		var prefixer = function() {
-			var el = document.createElement('fullpage');
-			var type;
-			var transformType = {
-				'-webkit-transform': '-webkit-',
-				'-moz-transform'   : '-moz-',
-				'-o-transform'     : '-o-'
-			}
-			for (var name in transformType) {
-				if (el.style[name] !== undefined) {
-					type = transformType[name];
-				}
-			}
-			return function(option) {
-				var p = new RegExp(option.value.join('|'), 'g');
-				return option.css.replace(p, type + '$&');
-			}
-		}()
-		console.log(prefixer({
-			css: 'transform: translate(0, 0)',
-			value: ['transform']
-		}))
-	</script>
+	<section class="container">
+		<div class="box1">
+			<div class="i1"></div>
+			<img src="../../files/500/1.jpg" alt="">
+		</div>
+		<div class="box2">
+			<div class="i2"></div>
+			<img src="../../files/500/2.jpg" alt="">
+		</div>
+		<div class="box3">
+			<div class="i3"></div>
+			<img src="../../files/500/3.jpg" alt="">
+		</div>
+		<div class="box4">
+			<div class="i4"></div>
+			<img src="../../files/500/4.jpg" alt="">
+		</div>
+		<div class="box5">
+			<div class="i5"></div>
+			<img src="../../files/500/5.jpg" alt="">
+		</div>
+	</section>
 </body>
 </html>
