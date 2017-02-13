@@ -4,52 +4,73 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            font-size: 100px;
-        }
-        .test {
-            width: 1000px;
-            height: 50px;
-        }
-        .test:empty {
-            background-color: gray;
-
-            background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
-            background-size: 40px 40px;
-
-/*            -webkit-animation: progress-bar-stripes 2s linear infinite;
-            -o-animation: progress-bar-stripes 2s linear infinite;
-            animation: progress-bar-stripes 2s linear infinite;*/
-        }
-        @-webkit-keyframes progress-bar-stripes {
-          from {
-            background-position: 40px 0;
-          }
-          to {
-            background-position: 0 0;
-          }
-        }
-        @-o-keyframes progress-bar-stripes {
-          from {
-            background-position: 40px 0;
-          }
-          to {
-            background-position: 0 0;
-          }
-        }
-        @keyframes progress-bar-stripes {
-          from {
-            background-position: 40px 0;
-          }
-          to {
-            background-position: 0 0;
-          }
-        }
-
+        
     </style>
 </head>
 <body>
-    <div class="test"></div>
+    <script>
+        function LazyMan(name) {
+            class LM {
+                constructor(name) {
+                    this.actions = []
+                    this.init(name)
+                }
+                pushActions(name, args) {
+                    this.actions.push({
+                        name,
+                        args,
+                    })
+                    return this
+                }
+                init(...args) {
+                    const main = name => console.log(`Hi, This is ${name}!`)
+
+                    return this ? this.pushActions('init', args) : main(args[0])
+                }
+                sleep(...args) {
+                    const main = time => {
+                        const end = performance.now() + time * 1000
+                        while (performance.now() < end) {}
+                        console.log(`Wake up after ${time}`)
+                    }
+
+                    return this ? this.pushActions('sleep', args) : main(args[0])
+                }
+                sleepFirst(...args) {
+                    const main = time => {
+                        const end = performance.now() + time * 1000
+                        while (performance.now() < end) {}
+                        console.log(`Wake up after ${time}`)
+                    }
+
+                    return this ? this.pushActions('sleepFirst', args) : main(args[0])
+                }
+                eat(...args) {
+                    const main = food => console.log(`Eat ${food}~`)
+
+                    return this ? this.pushActions('eat', args) : main(args[0])
+                }
+                value() {
+                    const actions = [
+                        ...this.actions.filter(action => action.name === 'sleepFirst'),
+                        ...this.actions.filter(action => action.name !== 'sleepFirst'),
+                    ]
+                    actions.forEach(method => {
+                        const {name, args} = method
+                        this[name].call(null, method.args)
+                    })
+                }
+            }
+
+            return new LM(name)
+        }
+        LazyMan('Hank').value()
+        console.log('------')
+        LazyMan('Hank').sleep(1).eat('dinner').value()
+        console.log('------')
+        LazyMan('Hank').eat('dinner').eat('supper').value()
+        console.log('------')
+        LazyMan('Hank').sleepFirst(1).eat('supper').value()
+    </script>
 </body>
 </html>
